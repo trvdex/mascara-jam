@@ -4,15 +4,13 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
-[node name="Node3D" type="CharacterBody3D" unique_id=1384185698]
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1524636665]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2058813211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6676358, 0)
+texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=85985083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_u8vuu")
 debug_color = Color(0.3254902, 0.58431375, 0.61960787, 1)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1524636665]
-
-[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D" unique_id=2058813211]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6676358, 0)
-texture = ExtResource("1_3vyb7")
