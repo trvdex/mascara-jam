@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://d3w4nj2qkus1c" path="res://scripts/PlayerMovement.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dqboq2so76wa2" path="res://enemies/enemie.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" path="res://scenes/defaultRoom.tscn" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://dohv8bqcrmetu" path="res://scenes/enemy_spawner.gd" id="5_tefeu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jyhfs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
 
 [node name="Main" type="Node3D" unique_id=662603082]
 
@@ -16,5 +23,21 @@ collision_layer = 3
 [node name="Enemie" parent="." unique_id=1548968741 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 1.3553731, -3.4489121)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1985552312]
-transform = Transform3D(90.96176, 0, 0, 0, 0.9999997, 0, 0, 0, -114.40227, 0.04672432, 0.06039238, 1.2373197)
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=982125684]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_jyhfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=693999244]
+transform = Transform3D(90.96176, 0, 0, 0, 0.99999964, 0, 0, 0, -114.40227, 0.04672432, 0.06039238, 1.2373197)
+shape = SubResource("BoxShape3D_tbgi4")
+debug_color = Color(0.76416063, 0.45434523, 0.40216202, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=954287633]
+transform = Transform3D(124.95057, 0, 0, 0, 0.99999964, 0, 0, 0, -117.98955, 0, 0, 0)
+layers = 3
+material = SubResource("StandardMaterial3D_jyhfs")
+
+[node name="EnemySpawner" type="Node3D" parent="." unique_id=922290888]
+script = ExtResource("5_tefeu")
+enemy_scene = ExtResource("4_jyhfs")
