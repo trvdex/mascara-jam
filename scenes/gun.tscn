@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bjaowo3bjm54f"]
+
+[ext_resource type="Texture2D" uid="uid://dfvjxo6jnffda" path="res://assets/Idle.png" id="1_og67c"]
+[ext_resource type="Texture2D" uid="uid://cdnes72oiwy2b" path="res://assets/Shoot1.png" id="2_gp1hk"]
+[ext_resource type="Texture2D" uid="uid://4xmqaw4mchif" path="res://assets/Shoot2.png" id="3_6b133"]
+[ext_resource type="Texture2D" uid="uid://d2iej03p76577" path="res://assets/Shoot3.png" id="4_haq8l"]
+[ext_resource type="Texture2D" uid="uid://dplbyearsc0w8" path="res://assets/Shoot4.png" id="5_bmp1f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k27wv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_og67c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gp1hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gp1hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6b133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_haq8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bmp1f")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_6b133"]
+resource_name = "IDLE"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_bmp1f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_haq8l"]
+resource_name = "shoot"
+step = 1.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_haq8l"]
+_data = {
+&"IDLE": SubResource("Animation_6b133"),
+&"RESET": SubResource("Animation_bmp1f"),
+&"shoot": SubResource("Animation_haq8l")
+}
+
+[node name="Gun" type="Node3D" unique_id=2076234713]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=514377695]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1017732859]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1163808964]
+texture_filter = 5
+position = Vector2(0, -83)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_k27wv")
+animation = &"idle"
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=171109899]
+libraries/ = SubResource("AnimationLibrary_haq8l")

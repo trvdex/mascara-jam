@@ -1,18 +1,23 @@
 [gd_scene format=3 uid="uid://cky5417v0nrw5"]
 
-[ext_resource type="Texture2D" uid="uid://bl68kyntcuts" path="res://icon.svg" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://bjaowo3bjm54f" path="res://scenes/gun.tscn" id="1_3vyb7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
 [node name="Node3D" type="CharacterBody3D" unique_id=1384185698]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=85985083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_u8vuu")
 debug_color = Color(0.3254902, 0.58431375, 0.61960787, 1)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1524636665]
+[node name="Head" type="Node3D" parent="." unique_id=459430297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D" unique_id=2058813211]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6676358, 0)
-texture = ExtResource("1_3vyb7")
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1599017273]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=2033679298]
+
+[node name="Gun" parent="." unique_id=2076234713 instance=ExtResource("1_3vyb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
