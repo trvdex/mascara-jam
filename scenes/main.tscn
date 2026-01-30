@@ -7,12 +7,11 @@
 
 [node name="Main" type="Node3D" unique_id=662603082]
 
-[node name="Node3D" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
+[node name="Player" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
 script = ExtResource("3_sugp2")
 
-[node name="CharacterBody3D" parent="." unique_id=1548968741 instance=ExtResource("4_jyhfs")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.2442188, -1.5098747)
-collision_mask = 2
-
 [node name="StaticBody3D2" parent="." unique_id=1073513456 instance=ExtResource("5_tbgi4")]
-collision_layer = 2
+collision_layer = 3
+
+[node name="CharacterBody3D" parent="." unique_id=1548968741 instance=ExtResource("4_jyhfs")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 1.3553731, -3.4489121)
