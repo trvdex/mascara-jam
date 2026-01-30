@@ -31,7 +31,7 @@ func _on_spawn_timer_timeout():
 	# Posición final sobre el terreno
 	var spawn_position = player.global_position + spawn_offset
 	var enemy_instance = enemy_scene.instantiate()
-	enemy_instance.global_position = spawn_position
 
-	# Añade a la escena
+	# PRIMERO añadir al árbol, LUEGO establecer posición global
 	get_tree().current_scene.add_child(enemy_instance)
+	enemy_instance.global_position = spawn_position
