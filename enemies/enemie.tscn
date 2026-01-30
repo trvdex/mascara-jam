@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dqboq2so76wa2"]
+
+[ext_resource type="Script" uid="uid://bxvdrc5mlhcq0" path="res://enemies/enemie.gd" id="1_bddoo"]
+[ext_resource type="Texture2D" uid="uid://yatt0hgippvu" path="res://enemies/enemyRed_0.png" id="1_df457"]
+[ext_resource type="Texture2D" uid="uid://vs1nna2vvanp" path="res://enemies/enemyRed_1.png" id="2_bddoo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y0ikd"]
+size = Vector3(0.47265625, 1.2224121, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_df457"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_df457")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bddoo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1548968741]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_bddoo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2136003003]
+transform = Transform3D(0.52177393, 0, 0, 0, 2.0727336, 0, 0, 0, 0.0789395, 0.010190897, -0.13840152, 0)
+shape = SubResource("BoxShape3D_y0ikd")
+debug_color = Color(0.3254902, 0.58431375, 0.61960787, 1)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1184590304]
+transform = Transform3D(0.145, 0, 0, 0, 0.579, 0, 0, 0, 0.044, 0, 0, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_df457")
+frame_progress = 0.72740924
