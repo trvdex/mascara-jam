@@ -1,14 +1,32 @@
 extends CharacterBody3D
 
+@export var speed := 4.0
+
 @onready var sprite: AnimatedSprite3D = $AnimatedSprite3D
+@onready var player: Node3D = get_parent().get_node("Player")
 
 func _ready() -> void:
-	# Asegura que la animación empieza siempre
 	sprite.play()
 
 func _physics_process(delta: float) -> void:
-	# El enemigo no se mueve
-	velocity = Vector3.ZERO
+	if not player:
+		return
 
-	# Si quieres que la gravedad NO le afecte, deja esto comentado
+	# --- MIRAR AL PLAYER ---
+	var look_pos := player.global_position
+	look_pos.y = global_position.y
+	look_at(look_pos, Vector3.UP)
+
+	# --- MOVERSE HACIA EL PLAYER ---
+	var direction := (player.global_position - global_position)
+	direction.y = 0
+	direction = direction.normalized()
+
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
+
+	# --- GRAVEDAD ---
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
 	move_and_slide()
