@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://b604wt5krh68l"]
 
 [ext_resource type="PackedScene" uid="uid://cky5417v0nrw5" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="ArrayMesh" uid="uid://cytv1l8mh4pm8" path="res://assets/rooms/room_prototype.obj" id="2_0wfyh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
+size = Vector3(10, 1, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5qli"]
 albedo_color = Color(0.85882354, 0.19215687, 0.29411766, 1)
@@ -17,10 +19,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1596561719]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1038899354]
-transform = Transform3D(16.070889, 0, 0, 0, 1, 0, 0, 0, 15.378428, 0, 0, 0)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1849005777]
 shape = SubResource("BoxShape3D_o5qli")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=1814589782]
-transform = Transform3D(16.059034, 0, 0, 0, 1, 0, 0, 0, 14.453319, 0, 0, 0)
+[node name="CSGBox3D2" type="CSGBox3D" parent="StaticBody3D" unique_id=1078516213]
+size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_o5qli")
+
+[node name="RoomPrototype" type="MeshInstance3D" parent="." unique_id=306010639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501, 0)
+mesh = ExtResource("2_0wfyh")
