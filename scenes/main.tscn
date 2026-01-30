@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b604wt5krh68l"]
+
+[ext_resource type="PackedScene" uid="uid://cky5417v0nrw5" path="res://scenes/player.tscn" id="1_o5qli"]
+
+[node name="Main" type="Node3D" unique_id=662603082]
+
+[node name="Node3D" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera3D2" type="Camera3D" parent="Node3D" unique_id=1836117892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1764818309]
+transform = Transform3D(16.070889, 0, 0, 0, 1, 0, 0, 0, 15.378428, 0, 0, 0)
