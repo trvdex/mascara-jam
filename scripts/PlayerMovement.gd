@@ -36,9 +36,9 @@ func _input(event: InputEvent) -> void:
 		# Rotación horizontal del cuerpo
 		rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
 		
-		# Si quieres mirar arriba/abajo (opcional, no es estilo Doom puro):
-		# head.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENS))
-		# head.rotation.x = clamp(head.rotation.x, deg_to_rad(-70), deg_to_rad(70))
+		
+		head.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENS))
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-70), deg_to_rad(70))
 	
 	# Liberar/capturar ratón con ESC
 	if event.is_action_pressed("ui_cancel"):
