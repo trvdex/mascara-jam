@@ -110,7 +110,7 @@ texture_filter = 5
 position = Vector2(0, -83)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_k27wv")
-animation = &"idle"
+animation = &"shoot"
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=171109899]
 libraries/ = SubResource("AnimationLibrary_haq8l")

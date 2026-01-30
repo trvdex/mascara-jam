@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cky5417v0nrw5" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="ArrayMesh" uid="uid://cytv1l8mh4pm8" path="res://assets/rooms/room_prototype.obj" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://crwekkb476vka" path="res://scripts/PlayerMovement.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dqboq2so76wa2" path="res://enemies/enemie.tscn" id="4_jyhfs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
 size = Vector3(10, 1, 10)
@@ -11,13 +13,8 @@ albedo_color = Color(0.85882354, 0.19215687, 0.29411766, 1)
 
 [node name="Main" type="Node3D" unique_id=662603082]
 
-[node name="Node3D" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7728721, 0)
-
-[node name="Camera3D2" type="Camera3D" parent="Node3D" unique_id=1836117892]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1596561719]
+collision_layer = 2
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1849005777]
 shape = SubResource("BoxShape3D_o5qli")
@@ -29,3 +26,9 @@ material = SubResource("StandardMaterial3D_o5qli")
 [node name="RoomPrototype" type="MeshInstance3D" parent="." unique_id=306010639]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501, 0)
 mesh = ExtResource("2_0wfyh")
+
+[node name="Node3D" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
+script = ExtResource("3_sugp2")
+
+[node name="CharacterBody3D" parent="." unique_id=1548968741 instance=ExtResource("4_jyhfs")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.2442188, -1.5098747)
