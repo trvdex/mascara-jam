@@ -12,3 +12,9 @@ func _physics_process(delta: float) -> void:
 
 	# Si quieres que la gravedad NO le afecte, deja esto comentado
 	move_and_slide()
+
+
+# Llamado cuando el jugador dispara al enemigo
+func take_damage(damage: int) -> void:
+	print("¡Enemigo eliminado! Daño recibido: ", damage)
+	queue_free()  # Elimina al enemigo de la escena

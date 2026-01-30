@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b604wt5krh68l"]
 
 [ext_resource type="PackedScene" uid="uid://cky5417v0nrw5" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://d3w4nj2qkus1c" path="res://scripts/PlayerMovement.gd" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://crwekkb476vka" path="res://scripts/PlayerMovement.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dqboq2so76wa2" path="res://enemies/enemie.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://boqlke67foepw" path="res://scenes/defaultRoom.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/defaultRoom.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node3D" unique_id=662603082]
 
@@ -12,6 +12,7 @@ script = ExtResource("3_sugp2")
 
 [node name="CharacterBody3D" parent="." unique_id=1548968741 instance=ExtResource("4_jyhfs")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.2442188, -1.5098747)
+collision_mask = 2
 
 [node name="StaticBody3D2" parent="." unique_id=1073513456 instance=ExtResource("5_tbgi4")]
-collision_layer = 3
+collision_layer = 2
