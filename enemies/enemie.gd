@@ -7,6 +7,8 @@ extends CharacterBody3D
 # === NODOS ===
 @onready var sprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var player: Node3D = null
+@onready var footstep_sound: AudioStreamPlayer3D = $FootstepSound
+@onready var footstep_timer: Timer = $FootstepTimer
 
 # === TIPOS DE ENEMIGO ===
 enum EnemyColor { RED, BLUE, GREEN }
@@ -108,6 +110,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+	# Sonido de pasos
+	_handle_footsteps()
+	
 	# --- DESLIZAMIENTO EN PAREDES ---
 	# Si hay colisión, intentar deslizarse
 	if get_slide_collision_count() > 0:
@@ -183,3 +188,10 @@ func _get_color_name() -> String:
 
 func die():
 	call_deferred("queue_free")
+
+
+func _handle_footsteps() -> void:
+	# Solo reproducir pasos si está en el suelo, moviéndose, y el timer terminó
+	if is_on_floor() and velocity.length() > 0.1 and footstep_timer.is_stopped():
+		footstep_sound.play()
+		footstep_timer.start()

@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://d3w4nj2qkus1c" path="res://scripts/PlayerMovement.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dqboq2so76wa2" path="res://enemies/enemie.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://c4luh2xtyootg" path="res://scenes/defaultRoom.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://dohv8bqcrmetu" path="res://scenes/enemy_spawner.gd" id="5_tefeu"]
 [ext_resource type="AudioStream" uid="uid://dc8q8xbd5wvni" path="res://music/suits-you-69233.mp3" id="6_tefeu"]
 
@@ -41,5 +40,6 @@ enemy_scene = ExtResource("4_jyhfs")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=857248571]
 stream = ExtResource("6_tefeu")
+volume_db = -15.0
 autoplay = true
 parameters/looping = true
