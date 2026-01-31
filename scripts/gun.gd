@@ -11,7 +11,6 @@ const AMMO_COLORS := {
 }
 
 # === NODOS ===
-@onready var animation: AnimationPlayer = $Animation
 @onready var spriteHandR: AnimatedSprite2D = $CanvasLayer/Control/HandR
 @onready var spriteMask: AnimatedSprite2D = $CanvasLayer/Control/Right/Mask
 @onready var spriteHandL: AnimatedSprite2D = $CanvasLayer/Control/HandL
@@ -23,10 +22,6 @@ var current_ammo: AmmoType = AmmoType.RED
 
 
 func _ready() -> void:
-	animation.play("IDLE")
-	# Conectar señal para saber cuando termina la animación
-	animation.animation_finished.connect(_on_animation_finished)
-	# Aplicar color inicial
 	_apply_ammo_color()
 
 
@@ -52,14 +47,12 @@ func _input(event: InputEvent) -> void:
 
 func shoot() -> void:
 	can_shoot = false
-	animation.play("Shoot")
 	shoot_sound.play()
 
 
 func _on_animation_finished(anim_name: String) -> void:
 	# Cuando termina la animación de disparo, volver a idle
 	if anim_name == "Shoot":
-		animation.play("IDLE")
 		can_shoot = true
 
 

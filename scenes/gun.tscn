@@ -1,10 +1,5 @@
 [gd_scene format=3 uid="uid://bjaowo3bjm54f"]
 
-[ext_resource type="Texture2D" uid="uid://dfvjxo6jnffda" path="res://assets/Idle.png" id="1_og67c"]
-[ext_resource type="Texture2D" uid="uid://cdnes72oiwy2b" path="res://assets/Shoot1.png" id="2_gp1hk"]
-[ext_resource type="Texture2D" uid="uid://4xmqaw4mchif" path="res://assets/Shoot2.png" id="3_6b133"]
-[ext_resource type="Texture2D" uid="uid://d2iej03p76577" path="res://assets/Shoot3.png" id="4_haq8l"]
-[ext_resource type="Texture2D" uid="uid://dplbyearsc0w8" path="res://assets/Shoot4.png" id="5_bmp1f"]
 [ext_resource type="Script" uid="uid://cggp4vs3ivr6y" path="res://scripts/gun.gd" id="6_haq8l"]
 [ext_resource type="AudioStream" uid="uid://dkccky8cfide2" path="res://music/laser-gun-81720.mp3" id="7_laser"]
 [ext_resource type="Texture2D" uid="uid://c02j0rbojtdiw" path="res://assets/Hands/Left/idle.png" id="8_5lyo6"]
@@ -18,128 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b0x578m6y6var" path="res://assets/Hands/Mask/greenMask.png" id="15_wi2m7"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="17_qc2nv"]
 [ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k27wv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_og67c")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_gp1hk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_gp1hk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_6b133")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_haq8l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_bmp1f")
-}],
-"loop": true,
-"name": &"shoot",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_6b133"]
-resource_name = "IDLE"
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GunLayer/Control/AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GunLayer/Control/AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_bmp1f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GunLayer/Control/AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GunLayer/Control/AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_haq8l"]
-resource_name = "Shoot"
-length = 0.4
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GunLayer/Control/AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"shoot"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GunLayer/Control/AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 2, 3, 4]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_haq8l"]
-_data = {
-&"IDLE": SubResource("Animation_6b133"),
-&"RESET": SubResource("Animation_bmp1f"),
-&"Shoot": SubResource("Animation_haq8l")
-}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fa1ey"]
 animations = [{
@@ -233,29 +106,6 @@ animations = [{
 
 [node name="Gun" type="Node3D" unique_id=2076234713]
 script = ExtResource("6_haq8l")
-
-[node name="GunLayer" type="CanvasLayer" parent="." unique_id=514377695]
-visible = false
-
-[node name="Control" type="Control" parent="GunLayer" unique_id=1017732859]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GunLayer/Control" unique_id=1163808964]
-texture_filter = 5
-position = Vector2(1, -82)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_k27wv")
-animation = &"idle"
-
-[node name="Animation" type="AnimationPlayer" parent="." unique_id=171109899]
-libraries/ = SubResource("AnimationLibrary_haq8l")
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=479276468]
 stream = ExtResource("7_laser")

@@ -13,12 +13,13 @@ config_version=5
 config/name="MascaraJam"
 run/main_scene="uid://bly1kvgorg5ec"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://b0x578m6y6var"
 
 [display]
 
 window/size/viewport_width=920
 window/size/viewport_height=560
+window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [input]

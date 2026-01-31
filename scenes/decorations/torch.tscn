@@ -24,10 +24,10 @@ color_ramp = SubResource("GradientTexture1D_lkynk")
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 0.6, 0.1, 1)
-emission_enabled = true
-emission = Color(1, 0.5, 0, 1)
-emission_energy_multiplier = 3.0
 billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_spark"]
 material = SubResource("StandardMaterial3D_spark")
@@ -43,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2)
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 3.0653868, 1.7)
 light_color = Color(1, 0.5, 0.1, 1)
 light_energy = 5.0
+light_bake_mode = 1
 shadow_enabled = true
 omni_range = 20.0
 script = ExtResource("2_lkynk")
@@ -51,11 +52,11 @@ script = ExtResource("2_lkynk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0.1)
 light_color = Color(1, 0.7, 0.2, 1)
 light_energy = 3.0
+light_bake_mode = 1
 omni_range = 3.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1524110825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09807408, 1.7721556, 0.08907378)
-emitting = true
 amount = 10
 lifetime = 0.6
 visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1.5, 1)
