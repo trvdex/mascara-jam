@@ -281,6 +281,8 @@ position = Vector2(781, 491)
 sprite_frames = SubResource("SpriteFrames_wi2m7")
 animation = &"five"
 script = ExtResource("18_xi512")
+amplitud = 10.0
+velocidad = 1.0
 
 [node name="Right" type="Node2D" parent="CanvasLayer/Control" unique_id=2088540738]
 
@@ -289,5 +291,7 @@ material = SubResource("ShaderMaterial_qc2nv")
 position = Vector2(775, 285)
 scale = Vector2(0.35231188, 0.32878217)
 sprite_frames = SubResource("SpriteFrames_qc2nv")
-animation = &"red"
+animation = &"green"
 script = ExtResource("18_xi512")
+amplitud = 10.0
+velocidad = 1.0
