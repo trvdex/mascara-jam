@@ -40,5 +40,6 @@ enemy_scene = ExtResource("4_jyhfs")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=857248571]
 stream = ExtResource("6_tefeu")
+volume_db = -15.0
 autoplay = true
 parameters/looping = true
