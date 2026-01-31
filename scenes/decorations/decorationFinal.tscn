@@ -1,29 +1,13 @@
 [gd_scene format=3 uid="uid://25d51p4ur3ro"]
 
-[ext_resource type="PackedScene" uid="uid://c4luh2xtyootg" path="res://scenes/defaultRoom.tscn" id="1_1qq0c"]
 [ext_resource type="PackedScene" uid="uid://b3ocdww6yi2fo" path="res://assets/decoration/scenes/barril_2.tscn" id="2_3otyx"]
 [ext_resource type="PackedScene" uid="uid://d0b2dgmq3pjyc" path="res://assets/decoration/scenes/caja_2.tscn" id="2_etevl"]
 [ext_resource type="PackedScene" uid="uid://5yukct24u0r8" path="res://assets/decoration/scenes/cofre_2.tscn" id="3_3otyx"]
 
-[node name="Decoration3" type="Node3D" unique_id=1719087910]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fm8v"]
+size = Vector3(2.6658325, 1.5633545, 2.2635498)
 
-[node name="StaticBody3D" parent="." unique_id=1073513456 instance=ExtResource("1_1qq0c")]
-transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 0, 0, 0)
-
-[node name="barril2" parent="StaticBody3D" unique_id=2096751750 instance=ExtResource("2_3otyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7609017, 0.5929204, -1.4212437)
-
-[node name="barril3" parent="StaticBody3D" unique_id=323167112 instance=ExtResource("2_3otyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3249061, 0.5929204, -1.4212437)
-
-[node name="barril4" parent="StaticBody3D" unique_id=422591666 instance=ExtResource("2_3otyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0852334, 1.3646166, -1.3256378)
-
-[node name="barril5" parent="StaticBody3D" unique_id=1755321335 instance=ExtResource("2_3otyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6667738, 1.3646166, -1.3256378)
-
-[node name="barril6" parent="StaticBody3D" unique_id=1680394886 instance=ExtResource("2_3otyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9127657, 0.5929204, -1.4212437)
+[node name="DecorationFinal" type="Node3D" unique_id=1719087910]
 
 [node name="caja2" parent="." unique_id=58746692 instance=ExtResource("2_etevl")]
 transform = Transform3D(0.84488857, 0, -0.5349423, 0, 1, 0, 0.5349423, 0, 0.84488857, 0.031491578, 0.52168477, -0.14527571)
@@ -31,5 +15,28 @@ transform = Transform3D(0.84488857, 0, -0.5349423, 0, 1, 0, 0.5349423, 0, 0.8448
 [node name="cofre2" parent="." unique_id=252659156 instance=ExtResource("3_3otyx")]
 transform = Transform3D(0.8523664, 0, -0.522945, 0, 1, 0, 0.522945, 0, 0.8523664, 0.75554645, 1.2511305, 0.7858883)
 
+[node name="Area3D" type="Area3D" parent="cofre2" unique_id=1329674396]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cofre2/Area3D" unique_id=1056040155]
+transform = Transform3D(0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.5, -0.8834412, 0.28167725, 0.17498583)
+shape = SubResource("BoxShape3D_3fm8v")
+
 [node name="caja3" parent="." unique_id=1984976559 instance=ExtResource("2_etevl")]
 transform = Transform3D(0.84488857, 0, -0.5349423, 0, 1, 0, 0.5349423, 0, 0.84488857, -0.7060035, 0.52168477, -0.13130438)
+
+[node name="barril2" parent="." unique_id=2096751750 instance=ExtResource("2_3otyx")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 0.7625879, 0.5929204, -1.4203396)
+
+[node name="barril3" parent="." unique_id=323167112 instance=ExtResource("2_3otyx")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.326592, 0.5929204, -1.4196702)
+
+[node name="barril4" parent="." unique_id=422591666 instance=ExtResource("2_3otyx")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.0868059, 1.3646166, -1.3243489)
+
+[node name="barril5" parent="." unique_id=1755321335 instance=ExtResource("2_3otyx")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.6683459, 1.3646166, -1.3236587)
+
+[node name="barril6" parent="." unique_id=1680394886 instance=ExtResource("2_3otyx")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.9144512, 0.5929204, -1.4189725)

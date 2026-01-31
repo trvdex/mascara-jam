@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dqboq2so76wa2" path="res://enemies/enemie.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dohv8bqcrmetu" path="res://scenes/enemy_spawner.gd" id="5_tefeu"]
 [ext_resource type="AudioStream" uid="uid://dc8q8xbd5wvni" path="res://music/suits-you-69233.mp3" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://d0b2dgmq3pjyc" path="res://assets/decoration/scenes/caja_2.tscn" id="7_85g3d"]
+[ext_resource type="PackedScene" uid="uid://5yukct24u0r8" path="res://assets/decoration/scenes/cofre_2.tscn" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://b3ocdww6yi2fo" path="res://assets/decoration/scenes/barril_2.tscn" id="9_ya4ey"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jyhfs"]
 
@@ -13,10 +16,15 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_85g3d"]
+height = 1.4536133
+radius = 1.4077148
+
 [node name="Main" type="Node3D" unique_id=662603082]
 script = ExtResource("1_tbgi4")
 
 [node name="Player" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
+collision_layer = 5
 script = ExtResource("3_sugp2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=982125684]
@@ -43,3 +51,39 @@ stream = ExtResource("6_tefeu")
 volume_db = -15.0
 autoplay = true
 parameters/looping = true
+
+[node name="finalRoomDecoration" type="Node3D" parent="." unique_id=478063889]
+
+[node name="caja2" parent="finalRoomDecoration" unique_id=58746692 instance=ExtResource("7_85g3d")]
+transform = Transform3D(0.84488857, 0, -0.5349423, 0, 1, 0, 0.5349423, 0, 0.84488857, 0.031491578, 0.52168477, -0.14527571)
+
+[node name="cofre2" parent="finalRoomDecoration" unique_id=252659156 instance=ExtResource("8_choun")]
+transform = Transform3D(0.8523664, 0, -0.522945, 0, 1, 0, 0.522945, 0, 0.8523664, 0.75554645, 1.2511305, 0.7858883)
+
+[node name="Area3D" type="Area3D" parent="finalRoomDecoration/cofre2" unique_id=620492467]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="finalRoomDecoration/cofre2/Area3D" unique_id=608284201]
+transform = Transform3D(0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.5, -1.223977, 0.4629923, -0.33174986)
+shape = SubResource("CylinderShape3D_85g3d")
+
+[node name="caja3" parent="finalRoomDecoration" unique_id=1746898813 instance=ExtResource("7_85g3d")]
+transform = Transform3D(0.84488857, 0, -0.5349423, 0, 1, 0, 0.5349423, 0, 0.84488857, -0.7060035, 0.52168477, -0.13130438)
+
+[node name="barril2" parent="finalRoomDecoration" unique_id=2096751750 instance=ExtResource("9_ya4ey")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 0.7625879, 0.5929204, -1.4203396)
+
+[node name="barril3" parent="finalRoomDecoration" unique_id=796824379 instance=ExtResource("9_ya4ey")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.326592, 0.5929204, -1.4196702)
+
+[node name="barril4" parent="finalRoomDecoration" unique_id=1114044595 instance=ExtResource("9_ya4ey")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.0868059, 1.3646166, -1.3243489)
+
+[node name="barril5" parent="finalRoomDecoration" unique_id=603495431 instance=ExtResource("9_ya4ey")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.6683459, 1.3646166, -1.3236587)
+
+[node name="barril6" parent="finalRoomDecoration" unique_id=1338820954 instance=ExtResource("9_ya4ey")]
+transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.9144512, 0.5929204, -1.4189725)
+
+[connection signal="body_entered" from="finalRoomDecoration/cofre2/Area3D" to="." method="_on_area_3d_body_entered"]
