@@ -47,6 +47,7 @@ grow_vertical = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="CrosshairLayer" type="CanvasLayer" parent="." unique_id=2098514697]
+visible = false
 
 [node name="Crosshair" type="Control" parent="CrosshairLayer" unique_id=1361339172]
 layout_mode = 3
