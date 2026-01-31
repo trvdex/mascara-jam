@@ -19,6 +19,7 @@ var bob_time: float = 0.0
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D  # Opcional para disparo
+@onready var gun: Node3D = $Gun  # Referencia al arma
 
 @onready var health_label: Label = $HealthLayer/Label
 
@@ -99,14 +100,13 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot() -> void:
-	# Sistema de disparo básico con RayCast
 	if raycast and raycast.is_colliding():
 		var collider = raycast.get_collider()
 		print("¡Impacto en: ", collider.name, "!")
 		
-		# Si el objetivo tiene un método "take_damage", llamarlo
-		if collider.has_method("die"):
-			collider.die()  # 25 de daño
+		if collider.has_method("take_damage") and gun:
+			var ammo_type = gun.get_current_ammo_type()
+			collider.take_damage(25, ammo_type)
 	else:
 		print("¡Disparo al aire!")
 
@@ -116,6 +116,9 @@ func set_hp(value: int):
 	update_ui()
 
 func die():
+	call_deferred("_change_to_menu")
+
+func _change_to_menu():
 	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
 		
 func take_damage(amount: int):
