@@ -5,15 +5,18 @@ extends CharacterBody3D
 @onready var sprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var player: Node3D = get_parent().get_node("Player")
 
-@onready var enemyType:=randi_range(0,3)
+# Tipos de enemigo (debe coincidir con AmmoType en gun.gd)
+enum EnemyColor { RED, BLUE, GREEN }
+
+@onready var enemyType: int = randi_range(0, 2)
 
 func _ready() -> void:
 	match enemyType:
-		0:
+		EnemyColor.RED:
 			sprite.play("red")
-		1:
+		EnemyColor.BLUE:
 			sprite.play("blue")
-		2:
+		EnemyColor.GREEN:
 			sprite.play("green")
 	
 func _physics_process(delta: float) -> void:
@@ -41,6 +44,21 @@ func _physics_process(delta: float) -> void:
 
 
 # Llamado cuando el jugador dispara al enemigo
-func take_damage(damage: int) -> void:
-	print("¡Enemigo eliminado! Daño recibido: ", damage)
-	queue_free()  # Elimina al enemigo de la escena
+func take_damage(damage: int, ammo_type: int) -> void:
+	# Verificar si el color de la munición coincide con el color del enemigo
+	if ammo_type == enemyType:
+		print("¡Enemigo ", _get_color_name(), " eliminado! Daño recibido: ", damage)
+		queue_free()  # Elimina al enemigo de la escena
+	else:
+		print("¡Munición incorrecta! Necesitas munición ", _get_color_name(), " para este enemigo.")
+
+
+func _get_color_name() -> String:
+	match enemyType:
+		EnemyColor.RED:
+			return "ROJA"
+		EnemyColor.BLUE:
+			return "AZUL"
+		EnemyColor.GREEN:
+			return "VERDE"
+	return "DESCONOCIDO"

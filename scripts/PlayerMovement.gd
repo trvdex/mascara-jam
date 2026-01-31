@@ -19,6 +19,7 @@ var bob_time: float = 0.0
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D  # Opcional para disparo
+@onready var gun: Node3D = $Gun  # Referencia al arma
 
 # Variables internas
 var current_speed: float = SPEED
@@ -98,8 +99,9 @@ func shoot() -> void:
 		var collider = raycast.get_collider()
 		print("¡Impacto en: ", collider.name, "!")
 		
-		# Si el objetivo tiene un método "take_damage", llamarlo
+		# Si el objetivo tiene un método "take_damage", llamarlo con el tipo de munición
 		if collider.has_method("take_damage"):
-			collider.take_damage(25)  # 25 de daño
+			var ammo_type = gun.get_current_ammo_type()
+			collider.take_damage(25, ammo_type)  # 25 de daño + tipo de munición
 	else:
 		print("¡Disparo al aire!")
