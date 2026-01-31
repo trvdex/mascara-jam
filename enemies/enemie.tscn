@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://driuh4eom1fil" path="res://music/footstep-1-83098.mp3" id="8_khlny"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0ikd"]
-size = Vector3(0.36038208, 3.4042804, 3.1856995)
+size = Vector3(0.24286652, 3.085075, 3.1856995)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_df457"]
 resource_local_to_scene = true
@@ -50,7 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60d01"]
-size = Vector3(5.346039, 6.1192627, 0.33810425)
+size = Vector3(4.07603, 6.1192627, 0.33810425)
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.3, 1)
@@ -86,12 +86,12 @@ collision_mask = 3
 script = ExtResource("1_bddoo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2136003003]
-transform = Transform3D(14.094419, 0, 0, 0, 1.8494227, 0, 0, 0, 0.07893946, 0.06957996, 0.48032284, 0.028912108)
+transform = Transform3D(11.246586, 0, 0, 0, 1.8494222, 0, 0, 0, 0.07893946, 0.15225272, 0.18515038, 0.028912107)
 shape = SubResource("BoxShape3D_y0ikd")
 debug_color = Color(0.3254902, 0.58431375, 0.61960787, 1)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1184590304]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.46775532, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.79999995, 0, 0, 0, 0.79999995, -0.36210048, 0.46775556, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_df457")
 animation = &"red"
@@ -100,7 +100,7 @@ animation = &"red"
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=29286276]
-transform = Transform3D(1, 0, 0, 0, 1.032649, 0, 0, 0, 0.9509513, 0.1704254, 0.49579525, 0.02690125)
+transform = Transform3D(0.99999654, 0, 0, 0, 1.0326487, 0, 0, 0, 0.9509511, 0.08600114, 0.495795, 0.02690125)
 shape = SubResource("BoxShape3D_60d01")
 debug_color = Color(0.7726719, 0.4196268, 0.39289105, 0.41960785)
 
