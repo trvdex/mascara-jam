@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bxvdrc5mlhcq0" path="res://enemies/enemie.gd" id="1_bddoo"]
 [ext_resource type="Texture2D" uid="uid://yatt0hgippvu" path="res://enemies/enemyRed_0.png" id="1_df457"]
+[ext_resource type="Texture2D" uid="uid://dgxynaouiwqgo" path="res://enemies/enemyBlue_0.png" id="2_60d01"]
 [ext_resource type="Texture2D" uid="uid://vs1nna2vvanp" path="res://enemies/enemyRed_1.png" id="2_bddoo"]
+[ext_resource type="Texture2D" uid="uid://bb13dijbds12f" path="res://enemies/enemyBlue_1.png" id="3_khlny"]
+[ext_resource type="Texture2D" uid="uid://fw0isrv5ojgf" path="res://enemies/enemyGreen_0.png" id="4_kun26"]
+[ext_resource type="Texture2D" uid="uid://dk4t6ycnosn6y" path="res://enemies/enemyGreen_1.png" id="5_qmmhg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0ikd"]
 size = Vector3(0.36038208, 0.9257157, 1)
@@ -12,13 +16,35 @@ resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_60d01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_khlny")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kun26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qmmhg")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_df457")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_bddoo")
 }],
 "loop": true,
-"name": &"default",
+"name": &"red",
 "speed": 5.0
 }]
 
@@ -36,4 +62,4 @@ debug_color = Color(0.3254902, 0.58431375, 0.61960787, 1)
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.46775532, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_df457")
-frame_progress = 0.72740924
+animation = &"red"
