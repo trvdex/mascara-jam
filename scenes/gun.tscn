@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bjaowo3bjm54f"]
 
 [ext_resource type="Texture2D" uid="uid://dfvjxo6jnffda" path="res://assets/Idle.png" id="1_og67c"]
+[ext_resource type="AudioStream" path="res://music/laser-gun-81720.mp3" id="7_laser"]
 [ext_resource type="Texture2D" uid="uid://cdnes72oiwy2b" path="res://assets/Shoot1.png" id="2_gp1hk"]
 [ext_resource type="Texture2D" uid="uid://4xmqaw4mchif" path="res://assets/Shoot2.png" id="3_6b133"]
 [ext_resource type="Texture2D" uid="uid://d2iej03p76577" path="res://assets/Shoot3.png" id="4_haq8l"]
@@ -153,3 +154,7 @@ animation = &"idle"
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=171109899]
 libraries/ = SubResource("AnimationLibrary_haq8l")
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_laser")
+volume_db = -5.0

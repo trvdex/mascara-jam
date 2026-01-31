@@ -13,6 +13,7 @@ const AMMO_COLORS := {
 # === NODOS ===
 @onready var animation: AnimationPlayer = $Animation
 @onready var sprite: AnimatedSprite2D = $CanvasLayer/Control/AnimatedSprite2D
+@onready var shoot_sound: AudioStreamPlayer = $ShootSound
 
 # === ESTADO ===
 var can_shoot: bool = true
@@ -50,6 +51,7 @@ func _input(event: InputEvent) -> void:
 func shoot() -> void:
 	can_shoot = false
 	animation.play("Shoot")
+	shoot_sound.play()
 
 
 func _on_animation_finished(anim_name: String) -> void:
