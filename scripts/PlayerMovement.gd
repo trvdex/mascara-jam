@@ -35,10 +35,6 @@ func _ready() -> void:
 	# Capturar el ratón
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_hp(5)
-	update_ui()
-
-func update_ui():
-	health_label.text = str(hp)
 	
 func _input(event: InputEvent) -> void:
 	# Rotación con el ratón (solo horizontal como Doom clásico)
@@ -120,7 +116,6 @@ func shoot() -> void:
 func set_hp(value: int):
 	hp = value
 	gun.update_health_animation(hp)
-	update_ui()
 
 func die():
 	call_deferred("_change_to_menu")
