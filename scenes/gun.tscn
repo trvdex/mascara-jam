@@ -9,13 +9,15 @@
 [ext_resource type="AudioStream" uid="uid://dkccky8cfide2" path="res://music/laser-gun-81720.mp3" id="7_laser"]
 [ext_resource type="Texture2D" uid="uid://c02j0rbojtdiw" path="res://assets/Hands/Left/idle.png" id="8_5lyo6"]
 [ext_resource type="Texture2D" uid="uid://u7rra2bugrjm" path="res://assets/Hands/Right/5_idle.png" id="9_lu2bp"]
-[ext_resource type="Texture2D" uid="uid://cyt2r7ad2keyg" path="res://assets/Hands/Mask/blue_mask.png" id="10_4fxfn"]
 [ext_resource type="Texture2D" uid="uid://pimcb5acotlw" path="res://assets/Hands/Right/4_idle.png" id="10_wi2m7"]
 [ext_resource type="Texture2D" uid="uid://d31edy3d8xdeo" path="res://assets/Hands/Right/1_idle.png" id="11_qc2nv"]
-[ext_resource type="Texture2D" uid="uid://do1vlua64o4py" path="res://assets/Hands/Mask/green_mask.png" id="11_rrmri"]
-[ext_resource type="Texture2D" uid="uid://c6fbxpv34pjpf" path="res://assets/Hands/Mask/red_mask.png" id="12_gvx52"]
 [ext_resource type="Texture2D" uid="uid://bib8cee8xwwjq" path="res://assets/Hands/Right/3_idle.png" id="12_xi512"]
 [ext_resource type="Texture2D" uid="uid://bwba5op7c33hf" path="res://assets/Hands/Right/2_idle.png" id="13_gdjye"]
+[ext_resource type="Shader" uid="uid://djmq3g286iywr" path="res://assets/Hands/Mask/Outline.gdshader" id="14_qc2nv"]
+[ext_resource type="Texture2D" uid="uid://mhyditmirwsu" path="res://assets/Hands/Mask/blueMask.png" id="15_qc2nv"]
+[ext_resource type="Texture2D" uid="uid://b0x578m6y6var" path="res://assets/Hands/Mask/greenMask.png" id="15_wi2m7"]
+[ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="17_qc2nv"]
+[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/mask.gd" id="18_xi512"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k27wv"]
 animations = [{
@@ -193,11 +195,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qc2nv"]
+shader = ExtResource("14_qc2nv")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 10.0
+shader_parameter/size_variation = 1.0
+shader_parameter/min_alpha = 0.5
+shader_parameter/max_alpha = 0.7
+shader_parameter/speed = 2.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qc2nv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_4fxfn")
+"texture": ExtResource("15_qc2nv")
 }],
 "loop": true,
 "name": &"blue",
@@ -205,7 +216,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_rrmri")
+"texture": ExtResource("15_wi2m7")
 }],
 "loop": true,
 "name": &"green",
@@ -213,7 +224,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_gvx52")
+"texture": ExtResource("17_qc2nv")
 }],
 "loop": true,
 "name": &"red",
@@ -265,15 +276,17 @@ position = Vector2(143, 486)
 sprite_frames = SubResource("SpriteFrames_fa1ey")
 animation = &"left"
 
-[node name="Right" type="Node2D" parent="CanvasLayer/Control" unique_id=2088540738]
-
-[node name="HandR" type="AnimatedSprite2D" parent="CanvasLayer/Control/Right" unique_id=1173222210]
+[node name="HandR" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1173222210]
 position = Vector2(781, 491)
 sprite_frames = SubResource("SpriteFrames_wi2m7")
-animation = &"one"
+animation = &"four"
+
+[node name="Right" type="Node2D" parent="CanvasLayer/Control" unique_id=2088540738]
 
 [node name="Mask" type="AnimatedSprite2D" parent="CanvasLayer/Control/Right" unique_id=1730651445]
+material = SubResource("ShaderMaterial_qc2nv")
 position = Vector2(775, 285)
 scale = Vector2(0.35231188, 0.32878217)
 sprite_frames = SubResource("SpriteFrames_qc2nv")
-animation = &"red"
+animation = &"green"
+script = ExtResource("18_xi512")

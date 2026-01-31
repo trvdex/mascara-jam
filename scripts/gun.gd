@@ -12,7 +12,7 @@ const AMMO_COLORS := {
 
 # === NODOS ===
 @onready var animation: AnimationPlayer = $Animation
-@onready var spriteHandR: AnimatedSprite2D = $CanvasLayer/Control/Right/HandR
+@onready var spriteHandR: AnimatedSprite2D = $CanvasLayer/Control/HandR
 @onready var spriteMask: AnimatedSprite2D = $CanvasLayer/Control/Right/Mask
 @onready var spriteHandL: AnimatedSprite2D = $CanvasLayer/Control/HandL
 @onready var shoot_sound: AudioStreamPlayer = $ShootSound

@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://driuh4eom1fil" path="res://music/footstep-1-83098.mp3" id="8_khlny"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0ikd"]
-size = Vector3(0.36038208, 0.9257157, 1)
+size = Vector3(0.36038208, 0.9257157, 4.7373047)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_df457"]
 resource_local_to_scene = true
@@ -54,7 +54,7 @@ size = Vector3(1.2178955, 3.284668, 0.33810425)
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1548968741]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.6870046, 0)
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_bddoo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2136003003]
