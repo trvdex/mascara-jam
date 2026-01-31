@@ -23,7 +23,6 @@ var bob_time: float = 0.0
 @onready var footstep_sound: AudioStreamPlayer = $FootstepSound
 @onready var footstep_timer: Timer = $FootstepTimer
 
-@onready var health_label: Label = $HealthLayer/Label
 
 # Variables internas
 var current_speed: float = SPEED
