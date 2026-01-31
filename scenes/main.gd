@@ -5,8 +5,17 @@ const roomSize = 10;
 var n := 4
 var matrix := []
 @onready var player = $Player
+
+const decoration1 = preload("res://scenes/decorations/decoration1.tscn")
+const decoration2 = preload("res://scenes/decorations/decoration2.tscn")
+const decoration3 = preload("res://scenes/decorations/decoration3.tscn")
+const decoration4 = preload("res://scenes/decorations/decoration4.tscn")
+const decoration5 = preload("res://scenes/decorations/decoration5.tscn")
+var decorations = [decoration1, decoration2, decoration3, decoration4, decoration5]
+const finalRoom = preload("res://scenes/decorations/decorationFinal.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	var habitacionesMaximas = int(round(n*n*0.7))
 	randomize()
 	for i in range(0, n+2):
@@ -66,6 +75,10 @@ func print_matrix(matrix: Array, size: int) -> void:
 				var habitacion = defaultRoomScene.instantiate()
 				habitacion.position.x = x * roomSize
 				habitacion.position.z = z * roomSize
+				var chosenDecoration = randi() % decorations.size()
+				if !(chosenDecoration == decorations.size()):
+					var decoration = decorations[chosenDecoration].instantiate()
+					habitacion.add_child(decoration)
 				add_child(habitacion)
 				if primero:
 					primero = false

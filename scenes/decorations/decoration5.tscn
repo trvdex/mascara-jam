@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bgpi0yj380js3"]
+
+[ext_resource type="PackedScene" uid="uid://b3ocdww6yi2fo" path="res://assets/decoration/scenes/barril_2.tscn" id="2_k7mla"]
+[ext_resource type="PackedScene" uid="uid://qh0dw2yca3rq" path="res://assets/decoration/scenes/barril_tumbado_2.tscn" id="3_j7rc5"]
+
+[node name="Decoration5" type="Node3D" unique_id=1486780403]
+
+[node name="barril2" parent="." unique_id=2096751750 instance=ExtResource("2_k7mla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9836914, 0.5929204, -1.6259146)
+
+[node name="barrilTumbado2" parent="." unique_id=507628164 instance=ExtResource("3_j7rc5")]
+transform = Transform3D(0.9567578, 0, 0.29088587, 0, 1, 0, -0.29088587, 0, 0.9567578, -2.1386447, 0.50247824, -1.4889455)
+
+[node name="barril3" parent="." unique_id=393864847 instance=ExtResource("2_k7mla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3446712, 0.5929204, -1.6259146)
+
+[node name="barril4" parent="." unique_id=87798604 instance=ExtResource("2_k7mla")]
+transform = Transform3D(-0.0084297955, 0, 0.9999644, 0, 1, 0, -0.9999644, 0, -0.0084297955, 0.20277715, 0.5929204, -0.79348534)
+
+[node name="barril5" parent="." unique_id=94191237 instance=ExtResource("2_k7mla")]
+transform = Transform3D(-0.0084297955, 0, 0.9999644, 0, 1, 0, -0.9999644, 0, -0.0084297955, 0.1980226, 0.5929204, -1.3574698)
+
+[node name="barril6" parent="." unique_id=1099665237 instance=ExtResource("2_k7mla")]
+transform = Transform3D(-0.0084297955, 0, 0.9999644, 0, 1, 0, -0.9999644, 0, -0.0084297955, 0.29564548, 1.3646166, -1.1186116)
+
+[node name="barril7" parent="." unique_id=1860534254 instance=ExtResource("2_k7mla")]
+transform = Transform3D(-0.0084297955, 0, 0.9999644, 0, 1, 0, -0.9999644, 0, -0.0084297955, 0.2907431, 1.3646166, -1.7001312)
+
+[node name="barril8" parent="." unique_id=308054079 instance=ExtResource("2_k7mla")]
+transform = Transform3D(-0.0084297955, 0, 0.9999644, 0, 1, 0, -0.9999644, 0, -0.0084297955, 0.19306707, 0.5929204, -1.9453084)
