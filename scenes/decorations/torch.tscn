@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bjv2v0jx8jd6"]
+
+[ext_resource type="PackedScene" uid="uid://cc3y5hwr4sehh" path="res://assets/decoration/resources/torch1.glb" id="1_ue2s0"]
+[ext_resource type="Script" uid="uid://chmvtik447giv" path="res://scripts/torch_light.gd" id="2_lkynk"]
+
+[sub_resource type="Gradient" id="Gradient_ue2s0"]
+offsets = PackedFloat32Array(0, 0.34210527, 0.65789473, 0.9736842)
+colors = PackedColorArray(1, 1, 0, 1, 0.12280702, 0.12280702, 0.12280702, 1, 1, 0.13333334, 0, 1, 0.22044173, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lkynk"]
+gradient = SubResource("Gradient_ue2s0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ue2s0"]
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 0.3
+initial_velocity_max = 0.8
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.05
+scale_max = 0.1
+color_ramp = SubResource("GradientTexture1D_lkynk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spark"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0.6, 0.1, 1)
+emission_enabled = true
+emission = Color(1, 0.5, 0, 1)
+emission_energy_multiplier = 3.0
+billboard_mode = 3
+
+[sub_resource type="QuadMesh" id="QuadMesh_spark"]
+material = SubResource("StandardMaterial3D_spark")
+size = Vector2(0.1, 0.1)
+
+[node name="Torch" type="Node3D" unique_id=502406046]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="torch1" parent="." unique_id=2108447455 instance=ExtResource("1_ue2s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1296460623]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 3.0653868, 1.7)
+light_color = Color(1, 0.5, 0.1, 1)
+light_energy = 5.0
+shadow_enabled = true
+omni_range = 20.0
+script = ExtResource("2_lkynk")
+
+[node name="InnerLight" type="OmniLight3D" parent="." unique_id=260210788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0.1)
+light_color = Color(1, 0.7, 0.2, 1)
+light_energy = 3.0
+omni_range = 3.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1524110825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09807408, 1.7721556, 0.08907378)
+emitting = true
+amount = 10
+lifetime = 0.6
+visibility_aabb = AABB(-0.5, -0.5, -0.5, 1, 1.5, 1)
+process_material = SubResource("ParticleProcessMaterial_ue2s0")
+draw_pass_1 = SubResource("QuadMesh_spark")

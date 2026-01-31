@@ -2,6 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://cytv1l8mh4pm8" path="res://assets/rooms/room_prototype.obj" id="1_abcp1"]
 [ext_resource type="Texture2D" uid="uid://b7lsase1xn0qs" path="res://assets/Textures/Bricks/BIGBRICKS.png" id="2_o03hj"]
+[ext_resource type="PackedScene" uid="uid://bjv2v0jx8jd6" path="res://scenes/decorations/torch.tscn" id="3_0nysg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abcp1"]
 albedo_texture = ExtResource("2_o03hj")
@@ -22,3 +23,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_abcp1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=607453105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501, 0)
 shape = SubResource("ConcavePolygonShape3D_abcp1")
+
+[node name="Torch" parent="." unique_id=502406046 instance=ExtResource("3_0nysg")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 4.1560717, 1.920345, -4.8708797)
+
+[node name="Torch2" parent="." unique_id=1131481310 instance=ExtResource("3_0nysg")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -4.718537, 1.920345, -4.8708797)
+
+[node name="Torch3" parent="." unique_id=788544730 instance=ExtResource("3_0nysg")]
+transform = Transform3D(-0.4, 0, -3.4969112e-08, 0, 0.4, 0, 3.4969112e-08, 0, -0.4, 4.1560717, 1.920345, 4.8694825)
+
+[node name="Torch4" parent="." unique_id=2085631253 instance=ExtResource("3_0nysg")]
+transform = Transform3D(-0.4, 0, -3.4969112e-08, 0, 0.4, 0, 3.4969112e-08, 0, -0.4, -4.475712, 1.920345, 4.8694825)
