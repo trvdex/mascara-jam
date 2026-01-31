@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://t0t72k1opmto"]
+
+[ext_resource type="Script" uid="uid://ckwreb506s2kq" path="res://scenes/tutorial.gd" id="1_4kmhl"]
+[ext_resource type="PackedScene" uid="uid://3pytvnxx7so8" path="res://scenes/decorations/doorBlocked.tscn" id="1_ph3nu"]
+[ext_resource type="PackedScene" uid="uid://c4luh2xtyootg" path="res://scenes/defaultRoom.tscn" id="2_4kmhl"]
+[ext_resource type="PackedScene" uid="uid://dfn5xc7ldjsqn" path="res://assets/decoration/resources/signboard.glb" id="3_cq4me"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6yjpi"]
+size = Vector3(0.49804688, 0.55130005, 0.061279297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cq4me"]
+size = Vector3(0.644104, 1.8910522, 1.7231445)
+
+[node name="Tutorial" type="Node3D" unique_id=1055715724]
+script = ExtResource("1_4kmhl")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=338747182]
+
+[node name="DoorBlocked" parent="Node3D" unique_id=652396169 instance=ExtResource("1_ph3nu")]
+
+[node name="StaticBody3D" parent="Node3D" unique_id=1073513456 instance=ExtResource("2_4kmhl")]
+
+[node name="DoorBlocked2" parent="Node3D" unique_id=289652684 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="DoorBlocked3" parent="Node3D" unique_id=6157463 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D" unique_id=1097731363]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -3)
+
+[node name="signboard2" parent="Node3D/Node3D" unique_id=316860981 instance=ExtResource("3_cq4me")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449794)
+
+[node name="Label3D" type="Label3D" parent="Node3D/Node3D" unique_id=927527461]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
+pixel_size = 0.0005
+text = "Para movert usa wsad"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Node3D" unique_id=1285687998]
+collision_layer = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/Node3D/StaticBody3D" unique_id=673588291]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.08073365, 1.0326061, 0.78475106)
+shape = SubResource("BoxShape3D_6yjpi")
+
+[node name="Area3D" type="Area3D" parent="Node3D" unique_id=956729787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060225725, 1.1177375, -4.990911)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/Area3D" unique_id=193760665]
+transform = Transform3D(-2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, -2.9802322e-08, 0.009521484, 0.28970337, -0.10513306)
+shape = SubResource("BoxShape3D_cq4me")
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=923087738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="DoorBlocked" parent="Node3D2" unique_id=956890171 instance=ExtResource("1_ph3nu")]
+
+[node name="StaticBody3D" parent="Node3D2" unique_id=1303050741 instance=ExtResource("2_4kmhl")]
+
+[node name="DoorBlocked3" parent="Node3D2" unique_id=716870730 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[node name="Node3D3" type="Node3D" parent="." unique_id=873999433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="DoorBlocked" parent="Node3D3" unique_id=1879275316 instance=ExtResource("1_ph3nu")]
+
+[node name="StaticBody3D" parent="Node3D3" unique_id=1813025028 instance=ExtResource("2_4kmhl")]
+
+[node name="DoorBlocked3" parent="Node3D3" unique_id=685037003 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D3" unique_id=1580114904]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -3)
+
+[node name="signboard2" parent="Node3D3/Node3D" unique_id=704606308 instance=ExtResource("3_cq4me")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449794)
+
+[node name="Label3D" type="Label3D" parent="Node3D3/Node3D" unique_id=2079381090]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
+pixel_size = 0.0005
+text = "Pudes disparar con
+el click izquierdo"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D3/Node3D" unique_id=247316430]
+collision_layer = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D3/Node3D/StaticBody3D" unique_id=1074445153]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.08073365, 1.0326061, 0.78475106)
+shape = SubResource("BoxShape3D_6yjpi")
+
+[node name="Node3D4" type="Node3D" parent="." unique_id=1387216146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[node name="DoorBlocked" parent="Node3D4" unique_id=466350095 instance=ExtResource("1_ph3nu")]
+
+[node name="StaticBody3D" parent="Node3D4" unique_id=1832587447 instance=ExtResource("2_4kmhl")]
+
+[node name="DoorBlocked3" parent="Node3D4" unique_id=414335732 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[node name="Node3D5" type="Node3D" parent="." unique_id=106118479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="DoorBlocked" parent="Node3D5" unique_id=1216914635 instance=ExtResource("1_ph3nu")]
+
+[node name="StaticBody3D" parent="Node3D5" unique_id=409002165 instance=ExtResource("2_4kmhl")]
+
+[node name="DoorBlocked3" parent="Node3D5" unique_id=1076742247 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D5" unique_id=2069977508]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -3)
+
+[node name="signboard2" parent="Node3D5/Node3D" unique_id=1699038822 instance=ExtResource("3_cq4me")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449794)
+
+[node name="Label3D" type="Label3D" parent="Node3D5/Node3D" unique_id=556664085]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
+pixel_size = 0.0005
+text = "Cambia de máscara con 
+\"q\" o \"e\" o con
+los números del teclado"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D5/Node3D" unique_id=154698848]
+collision_layer = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D5/Node3D/StaticBody3D" unique_id=856239606]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.08073365, 1.0326061, 0.78475106)
+shape = SubResource("BoxShape3D_6yjpi")
+
+[node name="Node3D6" type="Node3D" parent="." unique_id=1560700733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="DoorBlocked" parent="Node3D6" unique_id=1720858707 instance=ExtResource("1_ph3nu")]
+
+[node name="StaticBody3D" parent="Node3D6" unique_id=1717004573 instance=ExtResource("2_4kmhl")]
+
+[node name="DoorBlocked3" parent="Node3D6" unique_id=151303596 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[node name="Node3D7" type="Node3D" parent="." unique_id=1687661975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="DoorBlocked" parent="Node3D7" unique_id=1146653382 instance=ExtResource("1_ph3nu")]
+
+[node name="StaticBody3D" parent="Node3D7" unique_id=1662859394 instance=ExtResource("2_4kmhl")]
+
+[node name="DoorBlocked3" parent="Node3D7" unique_id=135920335 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D7" unique_id=1857670868]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -3)
+
+[node name="signboard2" parent="Node3D7/Node3D" unique_id=1823728470 instance=ExtResource("3_cq4me")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449794)
+
+[node name="Label3D" type="Label3D" parent="Node3D7/Node3D" unique_id=880782386]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
+pixel_size = 0.0005
+text = "Llega hasta el cofre para 
+pasar de nivel, y sobrevive
+en el camino"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D7/Node3D" unique_id=1094736835]
+collision_layer = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D7/Node3D/StaticBody3D" unique_id=1199701535]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.08073365, 1.0326061, 0.78475106)
+shape = SubResource("BoxShape3D_6yjpi")
+
+[node name="Node3D8" type="Node3D" parent="." unique_id=173568263]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -70)
+
+[node name="DoorBlocked" parent="Node3D8" unique_id=606314693 instance=ExtResource("1_ph3nu")]
+
+[node name="StaticBody3D" parent="Node3D8" unique_id=1485124556 instance=ExtResource("2_4kmhl")]
+
+[node name="DoorBlocked2" parent="Node3D8" unique_id=1211514412 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="DoorBlocked3" parent="Node3D8" unique_id=495233181 instance=ExtResource("1_ph3nu")]
+transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[connection signal="body_entered" from="Node3D/Area3D" to="." method="_on_area_3d_body_entered"]

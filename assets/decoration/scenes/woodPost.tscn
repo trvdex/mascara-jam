@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bfaj85nxcc2oa"]
+
+[ext_resource type="PackedScene" uid="uid://dfn5xc7ldjsqn" path="res://assets/decoration/resources/signboard.glb" id="1_yb5dk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwkaw"]
+size = Vector3(0.49804688, 0.55130005, 0.061279297)
+
+[node name="WoodPost" type="Node3D" unique_id=1079240363]
+
+[node name="signboard2" parent="." unique_id=540764022 instance=ExtResource("1_yb5dk")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449794)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=420705450]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
+pixel_size = 0.0005
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=331651377]
+collision_layer = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=427280015]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.08073365, 1.0326061, 0.78475106)
+shape = SubResource("BoxShape3D_gwkaw")

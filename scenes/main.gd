@@ -3,6 +3,8 @@ extends Node3D
 const defaultRoomScene = preload("res://scenes/defaultRoom.tscn")
 const roomSize = 10; 
 var n := 4
+var tutorialScene := preload("res://scenes/tutorial.tscn")
+
 var matrix1 := [[0, 0, 0, 0, 0, 0],
 				[0, 1, 1, 1, 1, 0],
 				[0, 1, 0, 1, 0, 0],
@@ -33,7 +35,7 @@ var matrix5 := [[0, 0, 0, 0, 0, 0],
 				[0, 2, 1, 1, 1, 0],
 				[0, 0, 0, 1, 0, 0],
 				[0, 0, 0, 0, 0, 0]]
-var matrixs := [matrix1, matrix2, matrix3, matrix4, matrix5]
+var matrixs := [tutorialScene, matrix1, matrix2, matrix3, matrix4, matrix5]
 var floor = 0
 var node3d = Node3D
 @onready var player = $Player
@@ -55,30 +57,33 @@ func print_matrix() -> void:
 	var primero = true
 	var floorMap = node3d.new()
 	floorMap.name = "map"+str(floor)
-	for x in range(6):
-		var linea := ""
-		for z in range(6):
-			linea += str(matrixs[floor][x][z]) + " "
-			if matrixs[floor][x][z] >= 1:
-				var habitacion = defaultRoomScene.instantiate()
-				habitacion.position.x = x * roomSize
-				habitacion.position.z = z * roomSize
-				var chosenDecoration = randi() % decorations.size()
-				if (!(chosenDecoration == decorations.size()) and (matrixs[floor][x][z] != 2) and !primero):
-					var decoration = decorations[chosenDecoration].instantiate()
-					habitacion.add_child(decoration)
-				if (matrixs[floor][x][z] == 2):
-					finalRoom.global_position = Vector3(x * roomSize, 0, z * roomSize)
-				add_walls(habitacion, x, z)
-				floorMap.add_child(habitacion)
-				if primero:
-					primero = false
-					player.position.x = x * roomSize
-					player.position.z = z * roomSize
-					player.position.y = 1
-		print(linea)
-	add_child(floorMap)
-	floor += 1
+	if(floor == 0):
+		create_tutorial()
+	else:
+		for x in range(6):
+			var linea := ""
+			for z in range(6):
+				linea += str(matrixs[floor][x][z]) + " "
+				if matrixs[floor][x][z] >= 1:
+					var habitacion = defaultRoomScene.instantiate()
+					habitacion.position.x = x * roomSize
+					habitacion.position.z = z * roomSize
+					var chosenDecoration = randi() % decorations.size()
+					if (!(chosenDecoration == decorations.size()) and (matrixs[floor][x][z] != 2) and !primero):
+						var decoration = decorations[chosenDecoration].instantiate()
+						habitacion.add_child(decoration)
+					if (matrixs[floor][x][z] == 2):
+						finalRoom.global_position = Vector3(x * roomSize, 0, z * roomSize)
+					add_walls(habitacion, x, z)
+					floorMap.add_child(habitacion)
+					if primero:
+						primero = false
+						player.position.x = x * roomSize
+						player.position.z = z * roomSize
+						player.position.y = 1
+			print(linea)
+		add_child(floorMap)
+		floor += 1
 
 func nextFloor() -> void:
 	clean_matrix()
@@ -87,6 +92,21 @@ func nextFloor() -> void:
 func clean_matrix() -> void:
 	var mapa = get_node("map"+str(floor-1))
 	mapa.queue_free()
+
+func create_tutorial() -> void:
+	var primero = true
+	var floorMap = node3d.new()
+	floorMap.name = "map"+str(floor)
+	var tutorial = tutorialScene.instantiate()
+	finalRoom.global_position = Vector3(0, 0, -70)
+	floorMap.add_child(tutorial)
+	if primero:
+		primero = false
+		player.position.x = 0
+		player.position.z = 0
+		player.position.y = 1
+	add_child(floorMap)
+	floor += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

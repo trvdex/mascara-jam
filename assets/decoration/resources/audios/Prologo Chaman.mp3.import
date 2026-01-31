@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c27rml1lvm0kn"
+path="res://.godot/imported/Prologo Chaman.mp3-d0d5f1dfc39505c7523600c7c05c237a.mp3str"
+
+[deps]
+
+source_file="res://assets/decoration/resources/audios/Prologo Chaman.mp3"
+dest_files=["res://.godot/imported/Prologo Chaman.mp3-d0d5f1dfc39505c7523600c7c05c237a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
