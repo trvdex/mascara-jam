@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://mhyditmirwsu" path="res://assets/Hands/Mask/blueMask.png" id="15_qc2nv"]
 [ext_resource type="Texture2D" uid="uid://b0x578m6y6var" path="res://assets/Hands/Mask/greenMask.png" id="15_wi2m7"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="17_qc2nv"]
-[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/mask.gd" id="18_xi512"]
+[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k27wv"]
 animations = [{
@@ -200,9 +200,9 @@ shader = ExtResource("14_qc2nv")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 10.0
 shader_parameter/size_variation = 1.0
-shader_parameter/min_alpha = 0.5
+shader_parameter/min_alpha = 0.3
 shader_parameter/max_alpha = 0.7
-shader_parameter/speed = 2.0
+shader_parameter/speed = 4.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qc2nv"]
 animations = [{
@@ -279,7 +279,8 @@ animation = &"left"
 [node name="HandR" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1173222210]
 position = Vector2(781, 491)
 sprite_frames = SubResource("SpriteFrames_wi2m7")
-animation = &"four"
+animation = &"five"
+script = ExtResource("18_xi512")
 
 [node name="Right" type="Node2D" parent="CanvasLayer/Control" unique_id=2088540738]
 
@@ -288,5 +289,5 @@ material = SubResource("ShaderMaterial_qc2nv")
 position = Vector2(775, 285)
 scale = Vector2(0.35231188, 0.32878217)
 sprite_frames = SubResource("SpriteFrames_qc2nv")
-animation = &"green"
+animation = &"red"
 script = ExtResource("18_xi512")
