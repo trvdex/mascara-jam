@@ -85,3 +85,9 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.9)
+
+[node name="HealthLayer" type="CanvasLayer" parent="." unique_id=1914509567]
+
+[node name="Label" type="Label" parent="HealthLayer" unique_id=1285770151]
+offset_right = 40.0
+offset_bottom = 23.0

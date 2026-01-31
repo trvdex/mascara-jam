@@ -19,18 +19,23 @@ var bob_time: float = 0.0
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D  # Opcional para disparo
-@onready var gun: Node3D = $Gun  # Referencia al arma
+
+@onready var health_label: Label = $HealthLayer/Label
 
 # Variables internas
 var current_speed: float = SPEED
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var hp: int = 10
 
 
 func _ready() -> void:
 	# Capturar el ratón
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	update_ui()
 
-
+func update_ui():
+	health_label.text = str(hp)
+	
 func _input(event: InputEvent) -> void:
 	# Rotación con el ratón (solo horizontal como Doom clásico)
 	if event is InputEventMouseMotion:
@@ -99,9 +104,23 @@ func shoot() -> void:
 		var collider = raycast.get_collider()
 		print("¡Impacto en: ", collider.name, "!")
 		
-		# Si el objetivo tiene un método "take_damage", llamarlo con el tipo de munición
-		if collider.has_method("take_damage"):
-			var ammo_type = gun.get_current_ammo_type()
-			collider.take_damage(25, ammo_type)  # 25 de daño + tipo de munición
+		# Si el objetivo tiene un método "take_damage", llamarlo
+		if collider.has_method("die"):
+			collider.die()  # 25 de daño
 	else:
 		print("¡Disparo al aire!")
+
+
+func set_hp(value: int):
+	hp = value
+	update_ui()
+
+func die():
+	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
+		
+func take_damage(amount: int):
+	set_hp(hp - amount)
+	print("vida: ", hp)
+	
+	if hp <= 0:
+		die()
