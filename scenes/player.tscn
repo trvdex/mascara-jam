@@ -34,6 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 target_position = Vector3(0, 0, -50)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=678202941]
+layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="Head/Camera3D/CanvasLayer" unique_id=967736660]
 material = SubResource("ShaderMaterial_qhqgy")
