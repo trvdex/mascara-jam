@@ -38,6 +38,7 @@ var floor = 0
 var node3d = Node3D
 @onready var player = $Player
 
+const wall = preload("res://scenes/decorations/doorBlocked.tscn")
 const decoration1 = preload("res://scenes/decorations/decoration1.tscn")
 const decoration2 = preload("res://scenes/decorations/decoration2.tscn")
 const decoration3 = preload("res://scenes/decorations/decoration3.tscn")
@@ -68,6 +69,7 @@ func print_matrix() -> void:
 					habitacion.add_child(decoration)
 				if (matrixs[floor][x][z] == 2):
 					finalRoom.global_position = Vector3(x * roomSize, 0, z * roomSize)
+				add_walls(habitacion, x, z)
 				floorMap.add_child(habitacion)
 				if primero:
 					primero = false
@@ -90,6 +92,22 @@ func clean_matrix() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func add_walls(habitacion, x, z):
+	if(matrixs[floor][x][z+1] == 0):
+		var wall1 =wall.instantiate()
+		wall1.rotation_degrees = Vector3(0, -90, 0)
+		habitacion.add_child(wall1)
+	if(matrixs[floor][x+1][z] == 0):
+		habitacion.add_child(wall.instantiate())
+	if(matrixs[floor][x][z-1] == 0):
+		var wall1 =wall.instantiate()
+		wall1.rotation_degrees = Vector3(0, 90, 0)
+		habitacion.add_child(wall1)
+	if(matrixs[floor][x-1][z] == 0):
+		var wall1 =wall.instantiate()
+		wall1.rotation_degrees = Vector3(0, 180, 0)
+		habitacion.add_child(wall1)
+
 func _on_area_3d_body_entered(body):
-	print("me ha tocado", body.name)
+	print("me ha tocado Knekro en el baño del mercadona con nombre ", body.name)
 	nextFloor()
