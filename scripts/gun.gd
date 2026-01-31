@@ -47,13 +47,8 @@ func _input(event: InputEvent) -> void:
 
 func shoot() -> void:
 	can_shoot = false
+	spriteHandL.play("attack")
 	shoot_sound.play()
-
-
-func _on_animation_finished(anim_name: String) -> void:
-	# Cuando termina la animación de disparo, volver a idle
-	if anim_name == "Shoot":
-		can_shoot = true
 
 
 # === SISTEMA DE MUNICIÓN ===
@@ -78,6 +73,9 @@ func prev_ammo() -> void:
 func get_current_ammo_type() -> AmmoType:
 	return current_ammo
 	
+func get_can_shoot() -> bool:
+	return can_shoot
+	
 func _apply_ammo_color() -> void:
 	if spriteMask:
 		if current_ammo == AmmoType.BLUE:
@@ -100,3 +98,8 @@ func update_health_animation(hp: int) -> void:
 		spriteHandR.play("one")
 	else:
 		pass
+
+
+func _on_hand_l_animation_finished() -> void:
+	can_shoot = true
+	spriteHandL.play("idle")

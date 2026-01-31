@@ -13,7 +13,7 @@ config_version=5
 config/name="MascaraJam"
 run/main_scene="uid://bly1kvgorg5ec"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://b0x578m6y6var"
+config/icon="uid://dbbvsxn318uod"
 
 [display]
 
