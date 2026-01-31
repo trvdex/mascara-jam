@@ -129,5 +129,10 @@ func add_walls(habitacion, x, z):
 		habitacion.add_child(wall1)
 
 func _on_area_3d_body_entered(body):
-	print("me ha tocado Knekro en el baño del mercadona con nombre ", body.name)
-	nextFloor()
+	print("Cofre recogido por: ", body.name)
+	
+	# Si es el último nivel (floor 5 = matrix5), mostrar victoria
+	if floor >= len(matrixs):
+		get_tree().change_scene_to_file("res://scenes/Victory.tscn")
+	else:
+		nextFloor()

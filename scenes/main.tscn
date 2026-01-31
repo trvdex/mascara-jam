@@ -10,12 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://5yukct24u0r8" path="res://assets/decoration/scenes/cofre_2.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://b3ocdww6yi2fo" path="res://assets/decoration/scenes/barril_2.tscn" id="9_ya4ey"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jyhfs"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_85g3d"]
 height = 1.4536133
 radius = 1.4077148
@@ -26,21 +20,6 @@ script = ExtResource("1_tbgi4")
 [node name="Player" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
 collision_layer = 5
 script = ExtResource("3_sugp2")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=982125684]
-collision_layer = 3
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_jyhfs")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=693999244]
-transform = Transform3D(90.96176, 0, 0, 0, 0.99999964, 0, 0, 0, -114.40227, 0.04672432, 0.06039238, 1.2373197)
-shape = SubResource("BoxShape3D_tbgi4")
-debug_color = Color(0.76416063, 0.45434523, 0.40216202, 1)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=954287633]
-transform = Transform3D(124.95057, 0, 0, 0, 0.99999964, 0, 0, 0, -117.98955, 0, 0, 0)
-layers = 3
-material = SubResource("StandardMaterial3D_jyhfs")
 
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=922290888]
 script = ExtResource("5_tefeu")
