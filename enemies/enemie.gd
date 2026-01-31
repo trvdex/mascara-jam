@@ -5,9 +5,17 @@ extends CharacterBody3D
 @onready var sprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var player: Node3D = get_parent().get_node("Player")
 
-func _ready() -> void:
-	sprite.play()
+@onready var enemyType:=randi_range(0,3)
 
+func _ready() -> void:
+	match enemyType:
+		0:
+			sprite.play("red")
+		1:
+			sprite.play("blue")
+		2:
+			sprite.play("green")
+	
 func _physics_process(delta: float) -> void:
 	if not player:
 		return
