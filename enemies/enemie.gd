@@ -1,16 +1,18 @@
 extends CharacterBody3D
 
-@export var speed := 4.0
+# === MOVIMIENTO ===
+@export var speed: float = 4.0
 
+# === NODOS ===
 @onready var sprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var player: Node3D = get_parent().get_node("Player")
 
-# Tipos de enemigo (debe coincidir con AmmoType en gun.gd)
+# === TIPOS DE ENEMIGO ===
 enum EnemyColor { RED, BLUE, GREEN }
-
 @onready var enemyType: int = randi_range(0, 2)
 
 func _ready() -> void:
+	# Asignar animación según tipo
 	match enemyType:
 		EnemyColor.RED:
 			sprite.play("red")
@@ -18,7 +20,7 @@ func _ready() -> void:
 			sprite.play("blue")
 		EnemyColor.GREEN:
 			sprite.play("green")
-	
+
 func _physics_process(delta: float) -> void:
 	if not player:
 		return
@@ -42,16 +44,24 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+# --- DETECCIÓN DE COLISIÓN CON EL PLAYER ---
+func _on_area_3d_body_entered(body: Node) -> void:
+	print("Colisión con:", body.name)
+	if body == player:
+		hit_player()
 
-# Llamado cuando el jugador dispara al enemigo
+func hit_player():
+	if player:
+		player.take_damage(1)
+	die()
+
+# --- RECIBIR DAÑO DEL JUGADOR ---
 func take_damage(damage: int, ammo_type: int) -> void:
-	# Verificar si el color de la munición coincide con el color del enemigo
 	if ammo_type == enemyType:
 		print("¡Enemigo ", _get_color_name(), " eliminado! Daño recibido: ", damage)
-		queue_free()  # Elimina al enemigo de la escena
+		queue_free()  # Elimina al enemigo
 	else:
 		print("¡Munición incorrecta! Necesitas munición ", _get_color_name(), " para este enemigo.")
-
 
 func _get_color_name() -> String:
 	match enemyType:
@@ -62,3 +72,6 @@ func _get_color_name() -> String:
 		EnemyColor.GREEN:
 			return "VERDE"
 	return "DESCONOCIDO"
+
+func die():
+	queue_free()
