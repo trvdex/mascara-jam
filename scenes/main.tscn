@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://b604wt5krh68l"]
 
 [ext_resource type="PackedScene" uid="uid://cky5417v0nrw5" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://co6lvnpsywi25" path="res://scenes/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://d3w4nj2qkus1c" path="res://scripts/PlayerMovement.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dqboq2so76wa2" path="res://enemies/enemie.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://boqlke67foepw" path="res://scenes/defaultRoom.tscn" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://dohv8bqcrmetu" path="res://scenes/enemy_spawner.gd" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c4luh2xtyootg" path="res://scenes/defaultRoom.tscn" id="5_tbgi4"]
+[ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="5_tefeu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jyhfs"]
 
@@ -13,6 +14,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
 
 [node name="Main" type="Node3D" unique_id=662603082]
+script = ExtResource("1_tbgi4")
 
 [node name="Player" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
 script = ExtResource("3_sugp2")
