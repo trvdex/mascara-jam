@@ -46,7 +46,7 @@ func _input(event: InputEvent) -> void:
 
 
 func shoot() -> void:
-	can_shoot = false
+	#can_shoot = false
 	spriteHandL.play("attack")
 	shoot_sound.play()
 

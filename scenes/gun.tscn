@@ -176,6 +176,7 @@ scale = Vector2(0.8902587, 0.8902587)
 sprite_frames = SubResource("SpriteFrames_fa1ey")
 animation = &"attack"
 frame_progress = 0.28146622
+script = ExtResource("18_xi512")
 
 [node name="HandR" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1173222210]
 position = Vector2(781, 491)
