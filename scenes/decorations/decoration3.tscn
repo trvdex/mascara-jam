@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bdbybpr5n5vt5"]
+
+[ext_resource type="PackedScene" uid="uid://d0b2dgmq3pjyc" path="res://assets/decoration/scenes/caja_2.tscn" id="2_i1s8j"]
+
+[node name="Decoration4" type="Node3D" unique_id=146574668]
+
+[node name="caja2" parent="." unique_id=58746692 instance=ExtResource("2_i1s8j")]
+transform = Transform3D(0.98439586, 0, 0.17596807, 0, 1, 0, -0.17596807, 0, 0.98439586, -0.62873995, 0.52168477, -0.40135527)
+
+[node name="caja3" parent="." unique_id=1771134967 instance=ExtResource("2_i1s8j")]
+transform = Transform3D(0.98439586, 0, 0.17596807, 0, 1, 0, -0.17596807, 0, 0.98439586, -1.1251067, 0.52168477, -0.93445283)
+
+[node name="caja4" parent="." unique_id=1507349941 instance=ExtResource("2_i1s8j")]
+transform = Transform3D(0.8694261, 0, 0.49406332, 0, 1, 0, -0.49406332, 0, 0.8694261, -0.09453642, 0.52168477, -0.8427265)
+
+[node name="caja5" parent="." unique_id=938691304 instance=ExtResource("2_i1s8j")]
+transform = Transform3D(0.7542057, 0, -0.6566385, 0, 1, 0, 0.6566385, 0, 0.7542057, 0.4288419, 0.52168477, -0.26539117)
+
+[node name="caja6" parent="." unique_id=1561857870 instance=ExtResource("2_i1s8j")]
+transform = Transform3D(0.8694261, 0, 0.49406332, 0, 1, 0, -0.49406332, 0, 0.8694261, -1.1251067, 0.52168477, 0.51158375)
+
+[node name="caja7" parent="." unique_id=270121380 instance=ExtResource("2_i1s8j")]
+transform = Transform3D(0.98439586, 0, 0.17596807, 0, 1, 0, -0.17596807, 0, 0.98439586, -0.62873995, 1.2245041, -0.40135527)

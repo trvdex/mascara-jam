@@ -10,7 +10,7 @@
 shader = ExtResource("1_g2els")
 shader_parameter/color_depth = 5.000000142499999
 shader_parameter/dither_strength = 0.800000038
-shader_parameter/pixel_size = 4.000000142499999
+shader_parameter/pixel_size = 2.4210000674975003
 shader_parameter/scanline_strength = 0.3
 shader_parameter/chromatic_aberration = 1.5
 shader_parameter/vignette_strength = 0.4
@@ -93,10 +93,10 @@ color = Color(1, 1, 1, 0.9)
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="FootstepSound" type="AudioStreamPlayer" parent="." unique_id=1180111858]
+[node name="FootstepSound" type="AudioStreamPlayer" parent="." unique_id=534736798]
 stream = ExtResource("2_footstep")
 volume_db = -10.0
 
-[node name="FootstepTimer" type="Timer" parent="." unique_id=1911665863]
+[node name="FootstepTimer" type="Timer" parent="." unique_id=1914647832]
 wait_time = 0.4
 one_shot = true
