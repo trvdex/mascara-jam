@@ -23,6 +23,11 @@ collision_mask = 9
 transform = Transform3D(0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.5, -0.8834412, 0.28167725, 0.17498583)
 shape = SubResource("BoxShape3D_3fm8v")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="cofre2" unique_id=702392100]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.80001074, 0.0986495, 0.03275138)
+light_color = Color(1, 0.8784314, 0.5372549, 1)
+light_energy = 12.953
+
 [node name="caja3" parent="." unique_id=1984976559 instance=ExtResource("2_etevl")]
 transform = Transform3D(0.84488857, 0, -0.5349423, 0, 1, 0, 0.5349423, 0, 0.84488857, -0.7060035, 0.52168477, -0.13130438)
 

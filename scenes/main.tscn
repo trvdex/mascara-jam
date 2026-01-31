@@ -47,6 +47,11 @@ collision_mask = 4
 transform = Transform3D(0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.5, -1.223977, 0.4629923, -0.33174986)
 shape = SubResource("CylinderShape3D_85g3d")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="finalRoomDecoration/cofre2" unique_id=434171834]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.80001074, 0.0986495, 0.03275138)
+light_color = Color(1, 0.8784314, 0.5372549, 1)
+light_energy = 12.953
+
 [node name="caja3" parent="finalRoomDecoration" unique_id=1746898813 instance=ExtResource("7_85g3d")]
 transform = Transform3D(0.84488857, 0, -0.5349423, 0, 1, 0, 0.5349423, 0, 0.84488857, -0.7060035, 0.52168477, -0.13130438)
 
