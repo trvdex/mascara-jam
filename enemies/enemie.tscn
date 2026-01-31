@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://driuh4eom1fil" path="res://music/footstep-1-83098.mp3" id="8_khlny"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0ikd"]
-size = Vector3(0.24286652, 3.085075, 3.1856995)
+size = Vector3(0.34203172, 4.145356, 1.9104258)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_df457"]
 resource_local_to_scene = true
@@ -50,7 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60d01"]
-size = Vector3(4.07603, 6.1192627, 0.33810425)
+size = Vector3(4.147254, 6.2604065, 0.33810425)
 
 [sub_resource type="Gradient" id="Gradient_dust"]
 offsets = PackedFloat32Array(0, 0.3, 1)
@@ -81,12 +81,12 @@ turbulence_influence_max = 0.35
 size = Vector2(0.15, 0.15)
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1548968741]
-transform = Transform3D(0.24781671, 0, 0, 0, 0.27701935, 0, 0, 0, 0.3, 0, 1.1066215, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.1066215, 0)
 collision_mask = 3
 script = ExtResource("1_bddoo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2136003003]
-transform = Transform3D(11.246586, 0, 0, 0, 1.8494222, 0, 0, 0, 0.07893946, 0.15225272, 0.18515038, 0.028912107)
+transform = Transform3D(-4.3711275e-08, 0, -0.9999965, 0, 0.99999946, 0, 0.99999976, 0, -4.371138e-08, 0.0582784, -0.49240685, 0.02873888)
 shape = SubResource("BoxShape3D_y0ikd")
 debug_color = Color(0.3254902, 0.58431375, 0.61960787, 1)
 
@@ -97,10 +97,10 @@ sprite_frames = SubResource("SpriteFrames_df457")
 animation = &"red"
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1092929087]
-collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=29286276]
-transform = Transform3D(0.99999654, 0, 0, 0, 1.0326487, 0, 0, 0, 0.9509511, 0.08600114, 0.495795, 0.02690125)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.08322323, 0.5663669, 0.02690125)
 shape = SubResource("BoxShape3D_60d01")
 debug_color = Color(0.7726719, 0.4196268, 0.39289105, 0.41960785)
 

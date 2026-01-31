@@ -36,7 +36,7 @@ var matrix5 := [[0, 0, 0, 0, 0, 0],
 				[0, 0, 0, 1, 0, 0],
 				[0, 0, 0, 0, 0, 0]]
 var matrixs := [tutorialScene, matrix1, matrix2, matrix3, matrix4, matrix5]
-var floor = 0
+@export var floor = 0
 var node3d = Node3D
 @onready var player = $Player
 

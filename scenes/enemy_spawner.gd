@@ -6,7 +6,6 @@ extends Node3D
 @export var enemy_scene: PackedScene  # asigna aquí tu escena de enemigo
 @export var max_spawn_attempts: int = 10  # Intentos máximos para encontrar suelo
 @export var spawn_height: float = 5.0  # Altura desde donde lanzar el raycast
-
 @onready var player := get_parent().get_node("Player")
 
 func _ready():
@@ -22,18 +21,21 @@ func start_spawn_timer():
 	add_child(timer)
 
 func _on_spawn_timer_timeout():
-	if not enemy_scene or not player:
-		return
-
-	# Intentar encontrar una posición válida con suelo
-	for i in range(max_spawn_attempts):
-		var spawn_pos = _try_get_valid_spawn_position()
-		if spawn_pos != Vector3.ZERO:
-			_spawn_enemy_at(spawn_pos)
+	var main = get_tree().current_scene
+	var floor = int(main.floor)
+	if floor != 1:
+		if not enemy_scene or not player:
 			return
-	
-	# Si no encontramos posición válida después de todos los intentos, no spawnear
-	print("No se encontró posición válida para spawn después de ", max_spawn_attempts, " intentos")
+
+		# Intentar encontrar una posición válida con suelo
+		for i in range(max_spawn_attempts):
+			var spawn_pos = _try_get_valid_spawn_position()
+			if spawn_pos != Vector3.ZERO:
+				_spawn_enemy_at(spawn_pos)
+				return
+		
+		# Si no encontramos posición válida después de todos los intentos, no spawnear
+		print("No se encontró posición válida para spawn después de ", max_spawn_attempts, " intentos")
 
 
 func _try_get_valid_spawn_position() -> Vector3:
