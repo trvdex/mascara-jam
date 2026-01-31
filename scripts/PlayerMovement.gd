@@ -28,12 +28,13 @@ var bob_time: float = 0.0
 # Variables internas
 var current_speed: float = SPEED
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var hp: int = 10
+var hp: int = 5
 
 
 func _ready() -> void:
 	# Capturar el ratón
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	set_hp(5)
 	update_ui()
 
 func update_ui():
@@ -118,6 +119,7 @@ func shoot() -> void:
 
 func set_hp(value: int):
 	hp = value
+	gun.update_health_animation(hp)
 	update_ui()
 
 func die():
@@ -129,7 +131,6 @@ func _change_to_menu():
 func take_damage(amount: int):
 	set_hp(hp - amount)
 	print("vida: ", hp)
-	
 	if hp <= 0:
 		die()
 

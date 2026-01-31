@@ -12,7 +12,9 @@ const AMMO_COLORS := {
 
 # === NODOS ===
 @onready var animation: AnimationPlayer = $Animation
-@onready var sprite: AnimatedSprite2D = $CanvasLayer/Control/AnimatedSprite2D
+@onready var spriteHandR: AnimatedSprite2D = $CanvasLayer/Control/Right/HandR
+@onready var spriteMask: AnimatedSprite2D = $CanvasLayer/Control/Right/Mask
+@onready var spriteHandL: AnimatedSprite2D = $CanvasLayer/Control/HandL
 @onready var shoot_sound: AudioStreamPlayer = $ShootSound
 
 # === ESTADO ===
@@ -80,10 +82,28 @@ func prev_ammo() -> void:
 	switch_ammo(prev_type as AmmoType)
 
 
-func _apply_ammo_color() -> void:
-	if sprite:
-		sprite.modulate = AMMO_COLORS[current_ammo]
-
-
 func get_current_ammo_type() -> AmmoType:
 	return current_ammo
+	
+func _apply_ammo_color() -> void:
+	if spriteMask:
+		if current_ammo == AmmoType.BLUE:
+			spriteMask.play("blue")
+		elif current_ammo == AmmoType.GREEN:
+			spriteMask.play("green")
+		else:#red
+			spriteMask.play("red")
+			
+func update_health_animation(hp: int) -> void:
+	if hp == 5:
+		spriteHandR.play("five")
+	elif hp == 4:
+		spriteHandR.play("four") 
+	elif hp == 3:
+		spriteHandR.play("three") 
+	elif hp == 2:
+		spriteHandR.play("two") 
+	elif hp == 1:
+		spriteHandR.play("one")
+	else:
+		pass

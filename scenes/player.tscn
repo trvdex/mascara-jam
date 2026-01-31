@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjaowo3bjm54f" path="res://scenes/gun.tscn" id="1_3vyb7"]
 [ext_resource type="Shader" uid="uid://cpeqj0ul0cu52" path="res://shaders/retro_dither.gdshader" id="1_g2els"]
 [ext_resource type="AudioStream" uid="uid://b712tiglkcofm" path="res://music/st2-footstep-sfx-323055.mp3" id="2_footstep"]
+[ext_resource type="AudioStream" uid="uid://b712tiglkcofm" path="res://music/st2-footstep-sfx-323055.mp3" id="2_footstep"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
