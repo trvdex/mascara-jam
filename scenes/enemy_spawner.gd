@@ -2,7 +2,7 @@ extends Node3D
 
 # --- Ajustes exportados para modificar desde el Inspector ---
 @export var spawn_radius: float = 10.0
-@export var spawn_interval: float = 5.0
+@export var spawn_interval: float = 4.0
 @export var enemy_scene: PackedScene  # asigna aquí tu escena de enemigo
 
 @onready var player := get_parent().get_node("Player")  # ajusta según tu jerarquía
@@ -25,7 +25,7 @@ func _on_spawn_timer_timeout():
 
 	# Calcula posición aleatoria dentro del radio
 	var angle = randf() * TAU
-	var distance = randf() * spawn_radius
+	var distance = (1 + randi()%2)* spawn_radius
 	var spawn_offset = Vector3(cos(angle) * distance, 0, sin(angle) * distance)
 
 	# Posición final sobre el terreno

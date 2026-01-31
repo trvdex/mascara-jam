@@ -20,6 +20,8 @@ var bob_time: float = 0.0
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D  # Opcional para disparo
 @onready var gun: Node3D = $Gun  # Referencia al arma
+@onready var footstep_sound: AudioStreamPlayer = $FootstepSound
+@onready var footstep_timer: Timer = $FootstepTimer
 
 @onready var health_label: Label = $HealthLayer/Label
 
@@ -97,6 +99,9 @@ func _physics_process(delta: float) -> void:
 			camera.position.y = lerp(camera.position.y, 0.0, 10 * delta)
 	
 	move_and_slide()
+	
+	# Sonido de pasos
+	_handle_footsteps(direction)
 
 
 func shoot() -> void:
@@ -127,3 +132,10 @@ func take_damage(amount: int):
 	
 	if hp <= 0:
 		die()
+
+
+func _handle_footsteps(direction: Vector3) -> void:
+	# Solo reproducir pasos si está en el suelo, moviéndose, y el timer terminó
+	if is_on_floor() and direction and footstep_timer.is_stopped():
+		footstep_sound.play()
+		footstep_timer.start()
