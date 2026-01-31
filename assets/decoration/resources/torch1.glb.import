@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cikydya5upwwk"
-path="res://.godot/imported/torch.gltf-f48c788b6ee771d3240ee5c0955d03af.scn"
+uid="uid://cc3y5hwr4sehh"
+path="res://.godot/imported/torch1.glb-e246d5b10b973d7eecbaabe094de439b.scn"
 
 [deps]
 
-source_file="res://assets/decoration/resources/torch.gltf"
-dest_files=["res://.godot/imported/torch.gltf-f48c788b6ee771d3240ee5c0955d03af.scn"]
+source_file="res://assets/decoration/resources/torch1.glb"
+dest_files=["res://.godot/imported/torch1.glb-e246d5b10b973d7eecbaabe094de439b.scn"]
 
 [params]
 
