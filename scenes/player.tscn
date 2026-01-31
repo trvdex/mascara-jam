@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://cky5417v0nrw5"]
 
 [ext_resource type="PackedScene" uid="uid://bjaowo3bjm54f" path="res://scenes/gun.tscn" id="1_3vyb7"]
+[ext_resource type="Shader" uid="uid://cpeqj0ul0cu52" path="res://shaders/retro_dither.gdshader" id="1_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhqgy"]
+shader = ExtResource("1_g2els")
+shader_parameter/color_depth = 5.000000142499999
+shader_parameter/dither_strength = 0.800000038
+shader_parameter/pixel_size = 4.000000142499999
+shader_parameter/scanline_strength = 0.3
+shader_parameter/chromatic_aberration = 1.5
+shader_parameter/vignette_strength = 0.4
 
 [node name="Node3D" type="CharacterBody3D" unique_id=1384185698]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
@@ -21,12 +31,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=2033679298]
 target_position = Vector3(0, 0, -50)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=678202941]
+
+[node name="ColorRect" type="ColorRect" parent="Head/Camera3D/CanvasLayer" unique_id=967736660]
+material = SubResource("ShaderMaterial_qhqgy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Gun" parent="." unique_id=2076234713 instance=ExtResource("1_3vyb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="CrosshairLayer" type="CanvasLayer" parent="."]
+[node name="CrosshairLayer" type="CanvasLayer" parent="." unique_id=2098514697]
 
-[node name="Crosshair" type="Control" parent="CrosshairLayer"]
+[node name="Crosshair" type="Control" parent="CrosshairLayer" unique_id=1361339172]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,7 +56,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Horizontal" type="ColorRect" parent="CrosshairLayer/Crosshair"]
+[node name="Horizontal" type="ColorRect" parent="CrosshairLayer/Crosshair" unique_id=252892968]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.9)
 
-[node name="Vertical" type="ColorRect" parent="CrosshairLayer/Crosshair"]
+[node name="Vertical" type="ColorRect" parent="CrosshairLayer/Crosshair" unique_id=191314405]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
