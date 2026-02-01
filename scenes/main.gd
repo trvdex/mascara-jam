@@ -1,10 +1,13 @@
 extends Node3D
 
-const defaultRoomScene = preload("res://scenes/defaultRoom.tscn")
+# Carga diferida - se cargan cuando se necesitan
+var defaultRoomScenes = null
 const roomSize = 10; 
 var n := 4
-var tutorialScene := preload("res://scenes/tutorial.tscn")
+var tutorialScene: PackedScene = null
 @onready var audio := AudioStreamPlayer.new()
+
+@onready var gun : Node3D =  $Player/Gun
 
 var matrix1 := [[0, 0, 0, 0, 0, 0],
 				[0, 1, 1, 1, 1, 0],
@@ -36,31 +39,61 @@ var matrix5 := [[0, 0, 0, 0, 0, 0],
 				[0, 2, 1, 1, 1, 0],
 				[0, 0, 0, 1, 0, 0],
 				[0, 0, 0, 0, 0, 0]]
-var matrixs := [tutorialScene, matrix1, matrix2, matrix3, matrix4, matrix5]
+var matrixs := []  # Se inicializa en _ready
 @export var floor = 0
 var node3d = Node3D
 @onready var player = $Player
 
-const wall = preload("res://scenes/decorations/doorBlocked.tscn")
-const decoration1 = preload("res://scenes/decorations/decoration1.tscn")
-const decoration2 = preload("res://scenes/decorations/decoration2.tscn")
-const decoration3 = preload("res://scenes/decorations/decoration3.tscn")
-const decoration4 = preload("res://scenes/decorations/decoration4.tscn")
-const decoration5 = preload("res://scenes/decorations/decoration5.tscn")
-var decorations = [decoration1, decoration2, decoration3, decoration4, decoration5]
+# Carga diferida para decoraciones
+var walls = null
+var decorations: Array = []
 
-# Máscaras 3D para cada nivel
-const maskRed = preload("res://scenes/decorations/mask_red.tscn")
-const maskBlue = preload("res://scenes/decorations/mask_blue.tscn")
-const maskGreen = preload("res://scenes/decorations/mask_green.tscn")
-var masks = [maskRed, maskBlue, maskGreen]
+# Máscaras 3D para cada nivel (carga diferida)
+var masks: Array = []
 var current_mask: Node3D = null
 
 @onready var finalRoom = $finalRoomDecoration
 
 func _ready() -> void:
 	randomize()
+	# Cargar recursos necesarios
+	_load_resources()
 	print_matrix()
+
+func _load_resources() -> void:
+	# Cargar escenas principales
+	tutorialScene = load("res://scenes/tutorial.tscn")
+	defaultRoomScenes = [null,
+						load("res://scenes/rooms/defaultRoom1.tscn"),
+						load("res://scenes/rooms/defaultRoom2.tscn"),
+						load("res://scenes/rooms/defaultRoom3.tscn"),
+						load("res://scenes/rooms/defaultRoom4.tscn"),
+						load("res://scenes/rooms/defaultRoom5.tscn")]
+	walls = [null,
+			load("res://scenes/rooms/doorBlocked1.tscn"),
+			load("res://scenes/rooms/doorBlocked2.tscn"),
+			load("res://scenes/rooms/doorBlocked3.tscn"),
+			load("res://scenes/rooms/doorBlocked4.tscn"),
+			load("res://scenes/rooms/doorBlocked5.tscn")]
+	floor = 0;
+	# Cargar decoraciones
+	decorations = [
+		load("res://scenes/decorations/decoration1.tscn"),
+		load("res://scenes/decorations/decoration2.tscn"),
+		load("res://scenes/decorations/decoration3.tscn"),
+		load("res://scenes/decorations/decoration4.tscn"),
+		load("res://scenes/decorations/decoration5.tscn")
+	]
+	
+	# Cargar máscaras
+	masks = [
+		load("res://scenes/decorations/mask_red.tscn"),
+		load("res://scenes/decorations/mask_blue.tscn"),
+		load("res://scenes/decorations/mask_green.tscn")
+	]
+	
+	# Inicializar array de matrices
+	matrixs = [tutorialScene, matrix1, matrix2, matrix3, matrix4, matrix5]
 
 func print_matrix() -> void:
 	var primero = true
@@ -74,7 +107,7 @@ func print_matrix() -> void:
 			for z in range(6):
 				linea += str(matrixs[floor][x][z]) + " "
 				if matrixs[floor][x][z] >= 1:
-					var habitacion = defaultRoomScene.instantiate()
+					var habitacion = defaultRoomScenes[floor].instantiate()
 					habitacion.position.x = x * roomSize
 					habitacion.position.z = z * roomSize
 					var chosenDecoration = randi() % decorations.size()
@@ -120,9 +153,27 @@ func _on_mask_collected(body) -> void:
 	if floor >= len(matrixs):
 		get_tree().change_scene_to_file("res://scenes/Victory.tscn")
 	else:
+		# Crear un nuevo AudioStreamPlayer para cada vez
+		var next_floor_audio = AudioStreamPlayer.new()
+		next_floor_audio.stream = load("res://music/nextFloor.wav")
+		next_floor_audio.volume_db = -10
+		add_child(next_floor_audio)
+		next_floor_audio.play()
+		next_floor_audio.finished.connect(next_floor_audio.queue_free)
 		nextFloor()
 
+func advanceMask() -> void:
+	if floor == 1:#rojo
+		gun.setRedMask()
+	elif floor == 2:#rojo + azul
+		gun.setBlueMask()
+	elif floor == 3:#rojo + azul + verde
+		gun.setGreenMask()
+	elif floor == 4:#rojo + azul + verde
+		pass
+		
 func nextFloor() -> void:
+	advanceMask()
 	clean_matrix()
 	print_matrix()
 
@@ -165,24 +216,20 @@ func _process(delta: float) -> void:
 
 func add_walls(habitacion, x, z):
 	if(matrixs[floor][x][z+1] == 0):
-		var wall1 =wall.instantiate()
+		var wall1 = walls[floor].instantiate()
 		wall1.rotation_degrees = Vector3(0, -90, 0)
 		habitacion.add_child(wall1)
 	if(matrixs[floor][x+1][z] == 0):
-		habitacion.add_child(wall.instantiate())
+		habitacion.add_child( walls[floor].instantiate())
 	if(matrixs[floor][x][z-1] == 0):
-		var wall1 =wall.instantiate()
+		var wall1 = walls[floor].instantiate()
 		wall1.rotation_degrees = Vector3(0, 90, 0)
 		habitacion.add_child(wall1)
 	if(matrixs[floor][x-1][z] == 0):
-		var wall1 =wall.instantiate()
+		var wall1 = walls[floor].instantiate()
 		wall1.rotation_degrees = Vector3(0, 180, 0)
 		habitacion.add_child(wall1)
 
 # Mantener compatibilidad con la conexión existente del cofre
 func _on_area_3d_body_entered(body):
 	_on_mask_collected(body)
-	audio.stream = load("res://music/nextFloor.wav")
-	audio.volume_db = -10
-	add_child(audio)
-	audio.play()

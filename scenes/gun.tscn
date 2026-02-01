@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://mhyditmirwsu" path="res://assets/Hands/Mask/blueMask.png" id="15_qc2nv"]
 [ext_resource type="Texture2D" uid="uid://b0x578m6y6var" path="res://assets/Hands/Mask/greenMask.png" id="15_wi2m7"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="17_qc2nv"]
-[ext_resource type="Script" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
+[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fa1ey"]
 animations = [{
@@ -257,7 +257,7 @@ material = SubResource("ShaderMaterial_qc2nv")
 position = Vector2(757.99994, 376)
 scale = Vector2(0.35231188, 0.32878217)
 sprite_frames = SubResource("SpriteFrames_qc2nv")
-animation = &"green"
+animation = &"red"
 script = ExtResource("18_xi512")
 amplitud = 10.0
 velocidad = 1.0

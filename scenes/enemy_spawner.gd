@@ -2,9 +2,9 @@ extends Node3D
 
 # --- Ajustes exportados para modificar desde el Inspector ---
 @export var spawn_radius: float = 10.0
-@export var spawn_interval: float = 4.0
+@export var spawn_interval: float = 2.0
 @export var enemy_scene: PackedScene  # asigna aquí tu escena de enemigo
-@export var max_spawn_attempts: int = 10  # Intentos máximos para encontrar suelo
+@export var max_spawn_attempts: int = 3  # Intentos máximos para encontrar suelo
 @export var spawn_height: float = 5.0  # Altura desde donde lanzar el raycast
 @onready var player := get_parent().get_node("Player")
 
@@ -51,15 +51,17 @@ func _try_get_valid_spawn_position() -> Vector3:
 	# Hacer raycast para detectar suelo
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
-	query.collision_mask = 2  # Capa del mundo/suelo (ajusta según tu configuración)
+	query.collision_mask = 2  # Capa del mundo/suelo
 	
 	var result = space_state.intersect_ray(query)
 	
 	if result:
-		# Encontramos suelo, devolver la posición de impacto + pequeño offset
-		return result.position + Vector3(0, 0.5, 0)
+		# Verificar que la superficie es suelo (normal apunta hacia arriba)
+		var normal = result.normal
+		if normal.dot(Vector3.UP) > 0.7:  # Solo superficies horizontales
+			return result.position + Vector3(0, 0.5, 0)
 	
-	# No hay suelo en esta posición
+	# No hay suelo válido en esta posición
 	return Vector3.ZERO
 
 
