@@ -18,7 +18,6 @@ var bob_time: float = 0.0
 # === NODOS ===
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
-@onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D  # Opcional para disparo
 @onready var gun: Node3D = $Gun  # Referencia al arma
 @onready var footstep_sound: AudioStreamPlayer = $FootstepSound
 @onready var footstep_timer: Timer = $FootstepTimer
@@ -54,7 +53,7 @@ func _input(event: InputEvent) -> void:
 	
 	# Disparo
 	if event.is_action_pressed("shoot"):
-		shoot()
+		gun.shoot()
 
 
 func _physics_process(delta: float) -> void:
@@ -98,18 +97,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Sonido de pasos
 	_handle_footsteps(direction)
-
-
-func shoot() -> void:
-	if raycast and raycast.is_colliding():
-		var collider = raycast.get_collider()
-		print("¡Impacto en: ", collider.name, "!")
-		
-		if collider.has_method("take_damage") and gun.get_can_shoot():
-			var ammo_type = gun.get_current_ammo_type()
-			collider.take_damage(25, ammo_type)
-	else:
-		print("¡Disparo al aire!")
 
 
 func set_hp(value: int):

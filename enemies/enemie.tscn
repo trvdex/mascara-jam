@@ -94,7 +94,7 @@ debug_color = Color(0.3254902, 0.58431375, 0.61960787, 1)
 transform = Transform3D(0.8, 0, 0, 0, 0.79999995, 0, 0, 0, 0.79999995, -0.36210048, 0.46775556, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_df457")
-animation = &"red"
+animation = &"green"
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1092929087]
 collision_mask = 3

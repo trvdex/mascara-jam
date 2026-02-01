@@ -15,6 +15,7 @@ const AMMO_COLORS := {
 @onready var spriteMask: AnimatedSprite2D = $CanvasLayer/Control/Right/Mask
 @onready var spriteHandL: AnimatedSprite2D = $CanvasLayer/Control/HandL
 @onready var shoot_sound: AudioStreamPlayer = $ShootSound
+@onready var raycast : RayCast3D =  $"../Head/Camera3D/RayCast3D"
 
 # === ESTADO ===
 var can_shoot: bool = true
@@ -46,7 +47,12 @@ func _input(event: InputEvent) -> void:
 
 
 func shoot() -> void:
-	#can_shoot = false
+	if !can_shoot:
+		return;
+		
+	can_shoot = false
+		
+	shoot_sound.play()
 	
 	if current_ammo == AmmoType.BLUE:
 		spriteHandL.play("BlueAttack")
@@ -54,10 +60,13 @@ func shoot() -> void:
 		spriteHandL.play("GreenAttack")
 	else:#red
 		spriteHandL.play("RedAttack")
-			
-	
-	shoot_sound.play()
-
+		
+	if raycast and raycast.is_colliding():
+		var collider = raycast.get_collider()
+		print("¡Impacto en: ", collider.name, "!")
+		
+		if collider.has_method("take_damage"):
+			collider.take_damage(25, current_ammo)
 
 # === SISTEMA DE MUNICIÓN ===
 
@@ -65,7 +74,7 @@ func switch_ammo(ammo_type: AmmoType) -> void:
 	if current_ammo != ammo_type:
 		current_ammo = ammo_type
 		_apply_ammo_color()
-		print("Munición cambiada a: ", AmmoType.keys()[current_ammo])
+		#print("Munición cambiada a: ", AmmoType.keys()[current_ammo])
 
 
 func next_ammo() -> void:
@@ -83,6 +92,7 @@ func get_current_ammo_type() -> AmmoType:
 	
 func get_can_shoot() -> bool:
 	return can_shoot
+
 	
 func _apply_ammo_color() -> void:
 	if spriteMask:
