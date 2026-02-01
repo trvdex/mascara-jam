@@ -143,10 +143,13 @@ func _on_mask_collected(body) -> void:
 	if floor >= len(matrixs):
 		get_tree().change_scene_to_file("res://scenes/Victory.tscn")
 	else:
-		audio.stream = load("res://music/nextFloor.wav")
-		audio.volume_db = -10
-		add_child(audio)
-		audio.play()
+		# Crear un nuevo AudioStreamPlayer para cada vez
+		var next_floor_audio = AudioStreamPlayer.new()
+		next_floor_audio.stream = load("res://music/nextFloor.wav")
+		next_floor_audio.volume_db = -10
+		add_child(next_floor_audio)
+		next_floor_audio.play()
+		next_floor_audio.finished.connect(next_floor_audio.queue_free)
 		nextFloor()
 
 func advanceMask() -> void:
