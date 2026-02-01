@@ -53,6 +53,7 @@ var masks: Array = []
 var current_mask: Node3D = null
 
 @onready var finalRoom = $finalRoomDecoration
+@onready var level_label: Label = $LevelNotificationLayer/LevelLabel
 
 # Menú de pausa
 var pause_menu_scene = preload("res://scenes/PauseMenu.tscn")
@@ -117,7 +118,13 @@ func _load_resources() -> void:
 		load("res://scenes/decorations/decoration2.tscn"),
 		load("res://scenes/decorations/decoration3.tscn"),
 		load("res://scenes/decorations/decoration4.tscn"),
-		load("res://scenes/decorations/decoration5.tscn")
+		load("res://scenes/decorations/decoration5.tscn"),
+		[null,
+		load("res://scenes/decorations/circularRoom/circularRoom1.tscn"),
+		load("res://scenes/decorations/circularRoom/circularRoom2.tscn"),
+		load("res://scenes/decorations/circularRoom/circularRoom3.tscn"),
+		load("res://scenes/decorations/circularRoom/circularRoom4.tscn"),
+		load("res://scenes/decorations/circularRoom/circularRoom5.tscn")]
 	]
 	
 	# Cargar máscaras (orden: rojo, azul, verde, blanco, blanco)
@@ -150,7 +157,11 @@ func print_matrix() -> void:
 					habitacion.position.z = z * roomSize
 					var chosenDecoration = randi() % decorations.size()
 					if (!(chosenDecoration == decorations.size()) and (matrixs[floor][x][z] != 2) and !primero):
-						var decoration = decorations[chosenDecoration].instantiate()
+						var decoration = null
+						if chosenDecoration == (decorations.size()-1):
+							decoration = decorations[chosenDecoration][floor].instantiate()
+						else:
+							decoration = decorations[chosenDecoration].instantiate()
 						habitacion.add_child(decoration)
 					if (matrixs[floor][x][z] == 2):
 						# Colocar la máscara correspondiente al nivel
@@ -203,6 +214,7 @@ func _on_mask_collected(body) -> void:
 		next_floor_audio.play()
 		next_floor_audio.finished.connect(next_floor_audio.queue_free)
 		nextFloor()
+		show_level_notification(floor)
 
 func advanceMask() -> void:
 	if floor == 1:#rojo
@@ -218,6 +230,19 @@ func nextFloor() -> void:
 	advanceMask()
 	clean_matrix()
 	print_matrix()
+
+func show_level_notification(level_num: int) -> void:
+	if level_label:
+		level_label.text = "LEVEL " + str(level_num - 1)
+		level_label.modulate.a = 0
+		level_label.visible = true
+		
+		# Crear animación con Tween
+		var tween = create_tween()
+		tween.tween_property(level_label, "modulate:a", 1.0, 0.3)  # Fade in
+		tween.tween_interval(1.5)  # Mantener visible
+		tween.tween_property(level_label, "modulate:a", 0.0, 0.5)  # Fade out
+		tween.tween_callback(func(): level_label.visible = false)
 
 func clean_matrix() -> void:
 	var mapa = get_node("map"+str(floor-1))

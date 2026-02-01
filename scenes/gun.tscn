@@ -25,6 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://b0x578m6y6var" path="res://assets/Hands/Mask/greenMask.png" id="15_wi2m7"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="17_qc2nv"]
 [ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
+[ext_resource type="Texture2D" uid="uid://och10dk5duol" path="res://assets/Hands/Right/blueRing.png" id="22_n5tfn"]
+[ext_resource type="Texture2D" uid="uid://ckvoatjdb0j6k" path="res://assets/Hands/Right/greenRing.png" id="23_gdnuw"]
+[ext_resource type="Texture2D" uid="uid://cbho255b88cr0" path="res://assets/Hands/Right/redRing.png" id="24_niktg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fa1ey"]
 animations = [{
@@ -236,17 +239,26 @@ grow_vertical = 2
 position = Vector2(146, 404)
 scale = Vector2(0.8902587, 0.8902587)
 sprite_frames = SubResource("SpriteFrames_fa1ey")
-animation = &"RedAttack"
+animation = &"RedIdle"
 script = ExtResource("18_xi512")
 
 [node name="HandR" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1173222210]
 position = Vector2(705.99994, 420)
 scale = Vector2(0.8203125, 0.8203125)
 sprite_frames = SubResource("SpriteFrames_wi2m7")
-animation = &"one"
+animation = &"five"
 script = ExtResource("18_xi512")
 amplitud = 10.0
 velocidad = 1.0
+
+[node name="BlueRing" type="Sprite2D" parent="CanvasLayer/Control/HandR" unique_id=295363256]
+texture = ExtResource("22_n5tfn")
+
+[node name="GreenRing" type="Sprite2D" parent="CanvasLayer/Control/HandR" unique_id=1217176988]
+texture = ExtResource("23_gdnuw")
+
+[node name="RedRing" type="Sprite2D" parent="CanvasLayer/Control/HandR" unique_id=1026784392]
+texture = ExtResource("24_niktg")
 
 [node name="Right" type="Node2D" parent="CanvasLayer/Control" unique_id=2088540738]
 modulate = Color(1, 1, 1, 0.96862745)
