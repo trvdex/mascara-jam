@@ -1,9 +1,10 @@
 extends Node3D
 
-const defaultRoomScene = preload("res://scenes/defaultRoom.tscn")
+# Carga diferida - se cargan cuando se necesitan
+var defaultRoomScene: PackedScene = null
 const roomSize = 10; 
 var n := 4
-var tutorialScene := preload("res://scenes/tutorial.tscn")
+var tutorialScene: PackedScene = null
 @onready var audio := AudioStreamPlayer.new()
 
 var matrix1 := [[0, 0, 0, 0, 0, 0],
@@ -36,31 +37,51 @@ var matrix5 := [[0, 0, 0, 0, 0, 0],
 				[0, 2, 1, 1, 1, 0],
 				[0, 0, 0, 1, 0, 0],
 				[0, 0, 0, 0, 0, 0]]
-var matrixs := [tutorialScene, matrix1, matrix2, matrix3, matrix4, matrix5]
+var matrixs := []  # Se inicializa en _ready
 @export var floor = 0
 var node3d = Node3D
 @onready var player = $Player
 
-const wall = preload("res://scenes/decorations/doorBlocked.tscn")
-const decoration1 = preload("res://scenes/decorations/decoration1.tscn")
-const decoration2 = preload("res://scenes/decorations/decoration2.tscn")
-const decoration3 = preload("res://scenes/decorations/decoration3.tscn")
-const decoration4 = preload("res://scenes/decorations/decoration4.tscn")
-const decoration5 = preload("res://scenes/decorations/decoration5.tscn")
-var decorations = [decoration1, decoration2, decoration3, decoration4, decoration5]
+# Carga diferida para decoraciones
+var wall: PackedScene = null
+var decorations: Array = []
 
-# Máscaras 3D para cada nivel
-const maskRed = preload("res://scenes/decorations/mask_red.tscn")
-const maskBlue = preload("res://scenes/decorations/mask_blue.tscn")
-const maskGreen = preload("res://scenes/decorations/mask_green.tscn")
-var masks = [maskRed, maskBlue, maskGreen]
+# Máscaras 3D para cada nivel (carga diferida)
+var masks: Array = []
 var current_mask: Node3D = null
 
 @onready var finalRoom = $finalRoomDecoration
 
 func _ready() -> void:
 	randomize()
+	# Cargar recursos necesarios
+	_load_resources()
 	print_matrix()
+
+func _load_resources() -> void:
+	# Cargar escenas principales
+	tutorialScene = load("res://scenes/tutorial.tscn")
+	defaultRoomScene = load("res://scenes/defaultRoom.tscn")
+	wall = load("res://scenes/decorations/doorBlocked.tscn")
+	
+	# Cargar decoraciones
+	decorations = [
+		load("res://scenes/decorations/decoration1.tscn"),
+		load("res://scenes/decorations/decoration2.tscn"),
+		load("res://scenes/decorations/decoration3.tscn"),
+		load("res://scenes/decorations/decoration4.tscn"),
+		load("res://scenes/decorations/decoration5.tscn")
+	]
+	
+	# Cargar máscaras
+	masks = [
+		load("res://scenes/decorations/mask_red.tscn"),
+		load("res://scenes/decorations/mask_blue.tscn"),
+		load("res://scenes/decorations/mask_green.tscn")
+	]
+	
+	# Inicializar array de matrices
+	matrixs = [tutorialScene, matrix1, matrix2, matrix3, matrix4, matrix5]
 
 func print_matrix() -> void:
 	var primero = true
