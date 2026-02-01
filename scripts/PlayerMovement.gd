@@ -110,10 +110,19 @@ func _change_to_menu():
 		
 func take_damage(amount: int):
 	set_hp(hp - amount)
-	print("vida: ", hp)
+	show_damage_effect()
 	if hp <= 0:
 		die()
 
+func show_damage_effect() -> void:
+	var blood_overlay = get_node_or_null("DamageLayer/BloodOverlay")
+	if blood_overlay:
+		blood_overlay.visible = true
+		blood_overlay.modulate.a = 0.8
+		
+		var tween = create_tween()
+		tween.tween_property(blood_overlay, "modulate:a", 0.0, 0.5)
+		tween.tween_callback(func(): blood_overlay.visible = false)
 
 func _handle_footsteps(direction: Vector3) -> void:
 	# Solo reproducir pasos si está en el suelo, moviéndose, y el timer terminó

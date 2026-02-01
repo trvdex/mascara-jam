@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://och10dk5duol" path="res://assets/Hands/Right/blueRing.png" id="6_5p0sf"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="6_el213"]
 [ext_resource type="Texture2D" uid="uid://ckvoatjdb0j6k" path="res://assets/Hands/Right/greenRing.png" id="7_7t7qg"]
-[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="7_thu7x"]
+[ext_resource type="Script" path="res://scenes/objectMoverUI.gd" id="7_thu7x"]
 [ext_resource type="Texture2D" uid="uid://cbho255b88cr0" path="res://assets/Hands/Right/redRing.png" id="8_l3wcu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtd1e"]
