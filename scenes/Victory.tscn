@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbm37kr2jr7bu"]
 
 [ext_resource type="Theme" uid="uid://bc83lpx2m352m" path="res://font-menu/game_theme.tres" id="1_theme"]
-[ext_resource type="Script" uid="uid://cjol17ye06rs3" path="res://scripts/Victory.gd" id="2_script"]
+[ext_resource type="Script" path="res://scripts/Victory.gd" id="2_script"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btn"]
 
@@ -43,14 +43,14 @@ alignment = 1
 [node name="Title" type="Label" parent="VBoxContainer" unique_id=1692870331]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "FIN"
+text = "END"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Subtitle" type="Label" parent="VBoxContainer" unique_id=764615993]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Has recuperado todas las máscaras"
+text = "Congrats, you got back all the masks!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -65,5 +65,5 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_btn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_btn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_btn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_btn")
-text = "Volver al Menú"
+text = "Back to menu"
 flat = true

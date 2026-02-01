@@ -35,7 +35,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449
 [node name="Label3D" type="Label3D" parent="Node3D/Node3D" unique_id=927527461]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
 pixel_size = 0.0005
-text = "Para movert usa wsad"
+text = "Use wasd to move around"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Node3D" unique_id=1285687998]
 collision_layer = 2
@@ -82,8 +82,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449
 [node name="Label3D" type="Label3D" parent="Node3D3/Node3D" unique_id=2079381090]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
 pixel_size = 0.0005
-text = "Pudes disparar con
-el click izquierdo"
+text = "Use left mouse click to shoot"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D3/Node3D" unique_id=247316430]
 collision_layer = 2
@@ -119,11 +118,11 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449794)
 
 [node name="Label3D" type="Label3D" parent="Node3D5/Node3D" unique_id=556664085]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.85188293)
 pixel_size = 0.0005
-text = "Cambia de máscara con 
-\"q\" o \"e\" o con
-los números del teclado"
+text = "Switch between masks with 
+'q' and 'e' or the numbers 
+1,2,3"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D5/Node3D" unique_id=154698848]
 collision_layer = 2
@@ -161,9 +160,10 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449
 [node name="Label3D" type="Label3D" parent="Node3D7/Node3D" unique_id=880782386]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
 pixel_size = 0.0005
-text = "Llega hasta el cofre para 
-pasar de nivel, y sobrevive
-en el camino"
+text = "Get the mask at the end 
+of the level to access
+ the next one and survive
+"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D7/Node3D" unique_id=1094736835]
 collision_layer = 2
