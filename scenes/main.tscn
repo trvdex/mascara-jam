@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0b2dgmq3pjyc" path="res://assets/decoration/scenes/caja_2.tscn" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://5yukct24u0r8" path="res://assets/decoration/scenes/cofre_2.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://b3ocdww6yi2fo" path="res://assets/decoration/scenes/barril_2.tscn" id="9_ya4ey"]
+[ext_resource type="FontFile" uid="uid://c4wlb42e0r4v4" path="res://font-menu/VCR_OSD_MONO_1.001.ttf" id="10_level"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_85g3d"]
 height = 1.4536133
@@ -16,7 +17,6 @@ radius = 1.4077148
 
 [node name="Main" type="Node3D" unique_id=662603082]
 script = ExtResource("1_tbgi4")
-floor = null
 
 [node name="Player" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
 collision_layer = 5
@@ -70,5 +70,30 @@ transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0
 
 [node name="barril6" parent="finalRoomDecoration" unique_id=1338820954 instance=ExtResource("9_ya4ey")]
 transform = Transform3D(0.9999993, 0, -0.0011868237, 0, 1, 0, 0.0011868237, 0, 0.9999993, 1.9144512, 0.5929204, -1.4189725)
+
+[node name="LevelNotificationLayer" type="CanvasLayer" parent="." unique_id=111222333]
+layer = 10
+
+[node name="LevelLabel" type="Label" parent="LevelNotificationLayer" unique_id=111222334]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.15, 0.1, 0.05, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("10_level")
+theme_override_font_sizes/font_size = 72
+text = "NIVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="finalRoomDecoration/cofre2/Area3D" to="." method="_on_area_3d_body_entered"]

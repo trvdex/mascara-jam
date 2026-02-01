@@ -53,6 +53,7 @@ var masks: Array = []
 var current_mask: Node3D = null
 
 @onready var finalRoom = $finalRoomDecoration
+@onready var level_label: Label = $LevelNotificationLayer/LevelLabel
 
 func _ready() -> void:
 	randomize()
@@ -161,6 +162,7 @@ func _on_mask_collected(body) -> void:
 		next_floor_audio.play()
 		next_floor_audio.finished.connect(next_floor_audio.queue_free)
 		nextFloor()
+		show_level_notification(floor)
 
 func advanceMask() -> void:
 	if floor == 1:#rojo
@@ -176,6 +178,19 @@ func nextFloor() -> void:
 	advanceMask()
 	clean_matrix()
 	print_matrix()
+
+func show_level_notification(level_num: int) -> void:
+	if level_label:
+		level_label.text = "LEVEL " + str(level_num - 1)
+		level_label.modulate.a = 0
+		level_label.visible = true
+		
+		# Crear animación con Tween
+		var tween = create_tween()
+		tween.tween_property(level_label, "modulate:a", 1.0, 0.3)  # Fade in
+		tween.tween_interval(1.5)  # Mantener visible
+		tween.tween_property(level_label, "modulate:a", 0.0, 0.5)  # Fade out
+		tween.tween_callback(func(): level_label.visible = false)
 
 func clean_matrix() -> void:
 	var mapa = get_node("map"+str(floor-1))
