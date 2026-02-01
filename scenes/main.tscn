@@ -16,6 +16,7 @@ radius = 1.4077148
 
 [node name="Main" type="Node3D" unique_id=662603082]
 script = ExtResource("1_tbgi4")
+floor = null
 
 [node name="Player" parent="." unique_id=1384185698 instance=ExtResource("1_o5qli")]
 collision_layer = 5
