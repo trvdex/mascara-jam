@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://bjaowo3bjm54f"]
 
-[ext_resource type="Texture2D" uid="uid://cshx6ss3r37bs" path="res://assets/Hands/Left/redHand0000.png" id="3_gdjye"]
-[ext_resource type="Texture2D" uid="uid://bnpbwgl7wfbua" path="res://assets/Hands/Left/redHand0001.png" id="4_dtghq"]
-[ext_resource type="Texture2D" uid="uid://codfj24cgpewn" path="res://assets/Hands/Left/redHand0002.png" id="5_4sq5a"]
-[ext_resource type="Texture2D" uid="uid://dbbvsxn318uod" path="res://assets/Hands/Left/redHand0003.png" id="6_2xxsy"]
+[ext_resource type="Texture2D" uid="uid://cshx6ss3r37bs" path="res://assets/Hands/Left/redHand/redHand0000.png" id="3_gdjye"]
+[ext_resource type="Texture2D" uid="uid://b2vld2k3lr12b" path="res://assets/Hands/Left/blueHand/blueHand0000.png" id="3_qk4dr"]
+[ext_resource type="Texture2D" uid="uid://bdiwgkk0dmhid" path="res://assets/Hands/Left/blueHand/blueHand0001.png" id="4_c6og4"]
+[ext_resource type="Texture2D" uid="uid://bnpbwgl7wfbua" path="res://assets/Hands/Left/redHand/redHand0001.png" id="4_dtghq"]
+[ext_resource type="Texture2D" uid="uid://codfj24cgpewn" path="res://assets/Hands/Left/redHand/redHand0002.png" id="5_4sq5a"]
+[ext_resource type="Texture2D" uid="uid://c78b4dicf6fyc" path="res://assets/Hands/Left/blueHand/blueHand0002.png" id="5_xw3mq"]
+[ext_resource type="Texture2D" uid="uid://dbbvsxn318uod" path="res://assets/Hands/Left/redHand/redHand0003.png" id="6_2xxsy"]
 [ext_resource type="Script" uid="uid://cggp4vs3ivr6y" path="res://scripts/gun.gd" id="6_haq8l"]
+[ext_resource type="Texture2D" uid="uid://g18ho02q3l7i" path="res://assets/Hands/Left/greenHand/greenHand0000.png" id="6_vvtly"]
 [ext_resource type="AudioStream" uid="uid://dkccky8cfide2" path="res://music/laser-gun-81720.mp3" id="7_laser"]
-[ext_resource type="Texture2D" uid="uid://c8sd8pq7kccks" path="res://assets/Hands/Left/redHand0004.png" id="7_qk4dr"]
-[ext_resource type="Texture2D" uid="uid://c02j0rbojtdiw" path="res://assets/Hands/Left/idle.png" id="8_5lyo6"]
-[ext_resource type="Texture2D" uid="uid://o1qnvxh6cscc" path="res://assets/Hands/Left/redHand0005.png" id="8_c6og4"]
+[ext_resource type="Texture2D" uid="uid://dmflnw3u130lk" path="res://assets/Hands/Left/greenHand/greenHand0001.png" id="7_p0w0p"]
+[ext_resource type="Texture2D" uid="uid://c8sd8pq7kccks" path="res://assets/Hands/Left/redHand/redHand0004.png" id="7_qk4dr"]
+[ext_resource type="Texture2D" uid="uid://o1qnvxh6cscc" path="res://assets/Hands/Left/redHand/redHand0005.png" id="8_c6og4"]
 [ext_resource type="Texture2D" uid="uid://u7rra2bugrjm" path="res://assets/Hands/Right/5_idle.png" id="9_lu2bp"]
 [ext_resource type="Texture2D" uid="uid://pimcb5acotlw" path="res://assets/Hands/Right/4_idle.png" id="10_wi2m7"]
 [ext_resource type="Texture2D" uid="uid://d31edy3d8xdeo" path="res://assets/Hands/Right/1_idle.png" id="11_qc2nv"]
@@ -24,6 +28,74 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_qk4dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c6og4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xw3mq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xw3mq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xw3mq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c6og4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qk4dr")
+}],
+"loop": false,
+"name": &"BlueAttack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qk4dr")
+}],
+"loop": true,
+"name": &"BlueIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vvtly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p0w0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p0w0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p0w0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p0w0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p0w0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vvtly")
+}],
+"loop": false,
+"name": &"GreenAttack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vvtly")
+}],
+"loop": true,
+"name": &"GreenIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_gdjye")
 }, {
 "duration": 1.0,
@@ -36,15 +108,6 @@ animations = [{
 "texture": ExtResource("6_2xxsy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_2xxsy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_2xxsy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_qk4dr")
-}, {
-"duration": 1.0,
 "texture": ExtResource("7_qk4dr")
 }, {
 "duration": 1.0,
@@ -54,23 +117,15 @@ animations = [{
 "texture": ExtResource("3_gdjye")
 }],
 "loop": false,
-"name": &"attack",
-"speed": 10.0
+"name": &"RedAttack",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_gdjye")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_5lyo6")
-}],
-"loop": true,
-"name": &"left",
+"name": &"RedIdle",
 "speed": 5.0
 }]
 
@@ -174,8 +229,7 @@ grow_vertical = 2
 position = Vector2(146, 404)
 scale = Vector2(0.8902587, 0.8902587)
 sprite_frames = SubResource("SpriteFrames_fa1ey")
-animation = &"attack"
-frame_progress = 0.28146622
+animation = &"RedAttack"
 script = ExtResource("18_xi512")
 
 [node name="HandR" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1173222210]

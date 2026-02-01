@@ -47,7 +47,15 @@ func _input(event: InputEvent) -> void:
 
 func shoot() -> void:
 	#can_shoot = false
-	spriteHandL.play("attack")
+	
+	if current_ammo == AmmoType.BLUE:
+		spriteHandL.play("BlueAttack")
+	elif current_ammo == AmmoType.GREEN:
+		spriteHandL.play("GreenAttack")
+	else:#red
+		spriteHandL.play("RedAttack")
+			
+	
 	shoot_sound.play()
 
 
@@ -85,6 +93,14 @@ func _apply_ammo_color() -> void:
 		else:#red
 			spriteMask.play("red")
 			
+		if can_shoot:
+			if current_ammo == AmmoType.BLUE:
+				spriteHandL.play("BlueIdle")
+			elif current_ammo == AmmoType.GREEN:
+				spriteHandL.play("GreenIdle")
+			else:#red
+				spriteHandL.play("RedIdle")
+			
 func update_health_animation(hp: int) -> void:
 	if hp == 5:
 		spriteHandR.play("five")
@@ -102,4 +118,10 @@ func update_health_animation(hp: int) -> void:
 
 func _on_hand_l_animation_finished() -> void:
 	can_shoot = true
-	spriteHandL.play("idle")
+	
+	if current_ammo == AmmoType.BLUE:
+		spriteHandL.play("BlueIdle")
+	elif current_ammo == AmmoType.GREEN:
+		spriteHandL.play("GreenIdle")
+	else:#red
+		spriteHandL.play("RedIdle")

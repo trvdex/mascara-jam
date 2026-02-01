@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbbvsxn318uod"
-path="res://.godot/imported/redHand0003.png-c213fde31d2031712ec8731a79c4c8d8.ctex"
+uid="uid://o1qnvxh6cscc"
+path="res://.godot/imported/redHand0005.png-7421905ee0b8266825e9dd45bdac71c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hands/Left/redHand0003.png"
-dest_files=["res://.godot/imported/redHand0003.png-c213fde31d2031712ec8731a79c4c8d8.ctex"]
+source_file="res://assets/Hands/Left/redHand/redHand0005.png"
+dest_files=["res://.godot/imported/redHand0005.png-7421905ee0b8266825e9dd45bdac71c8.ctex"]
 
 [params]
 
