@@ -80,9 +80,12 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.82449794)
 
 [node name="Label3D" type="Label3D" parent="Node3D3/Node3D" unique_id=2079381090]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.06854373, 1.2168751, 0.8532944)
 pixel_size = 0.0005
-text = "Use left mouse click to shoot"
+text = "
+Your health is represented
+ with the five fingers 
+from your right hand"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D3/Node3D" unique_id=247316430]
 collision_layer = 2
@@ -100,6 +103,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 
 [node name="DoorBlocked3" parent="Node3D4" unique_id=414335732 instance=ExtResource("1_ph3nu")]
 transform = Transform3D(-0.99997836, 0, -0.006579741, 0, 1, 0, 0.006579741, 0, -0.99997836, 0.1, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D4" unique_id=218163769]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, -3)
+
+[node name="signboard2" parent="Node3D4/Node3D" unique_id=830222193 instance=ExtResource("3_cq4me")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 0.5009999, 0.8244972)
+
+[node name="Label3D" type="Label3D" parent="Node3D4/Node3D" unique_id=853793290]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0708555, 1.2168751, 0.8518826)
+pixel_size = 0.0005
+text = "When you get a mask use 
+left mouse click to shoot"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D4/Node3D" unique_id=1980231609]
+collision_layer = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D4/Node3D/StaticBody3D" unique_id=1372310894]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.08073365, 1.0326061, 0.78475106)
+shape = SubResource("BoxShape3D_6yjpi")
 
 [node name="Node3D5" type="Node3D" parent="." unique_id=106118479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
