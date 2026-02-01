@@ -33,7 +33,6 @@ func setRedMask() -> void:
 	spriteHandR.visible = true
 	spriteMask.visible = true
 	switch_ammo(AmmoType.RED)
-	#comentario
 	
 func setBlueMask() -> void:
 	canBlue = true
@@ -75,11 +74,11 @@ func shoot() -> void:
 		
 	can_shoot = false
 
-	if current_ammo == AmmoType.BLUE:
+	if current_ammo == AmmoType.BLUE and canBlue:
 		spriteHandL.play("BlueAttack")
 		blueShootSound.volume_db = -20
 		blueShootSound.play()
-	elif current_ammo == AmmoType.GREEN:
+	elif current_ammo == AmmoType.GREEN and canGreen:
 		spriteHandL.play("GreenAttack")
 		greenShootSound.volume_db = -5
 		greenShootSound.play()
@@ -123,17 +122,17 @@ func get_can_shoot() -> bool:
 	
 func _apply_ammo_color() -> void:
 	if spriteMask and canRed:
-		if current_ammo == AmmoType.BLUE:
+		if current_ammo == AmmoType.BLUE and canBlue:
 			spriteMask.play("blue")
-		elif current_ammo == AmmoType.GREEN:
+		elif current_ammo == AmmoType.GREEN and canGreen:
 			spriteMask.play("green")
 		else:#red
 			spriteMask.play("red")
 			
 		if can_shoot:
-			if current_ammo == AmmoType.BLUE:
+			if current_ammo == AmmoType.BLUE and canBlue:
 				spriteHandL.play("BlueIdle")
-			elif current_ammo == AmmoType.GREEN:
+			elif current_ammo == AmmoType.GREEN and canGreen:
 				spriteHandL.play("GreenIdle")
 			else:#red
 				spriteHandL.play("RedIdle")

@@ -1,7 +1,7 @@
 extends Node3D
 
 # Carga diferida - se cargan cuando se necesitan
-var defaultRoomScene: PackedScene = null
+var defaultRoomScenes = null
 const roomSize = 10; 
 var n := 4
 var tutorialScene: PackedScene = null
@@ -45,7 +45,7 @@ var node3d = Node3D
 @onready var player = $Player
 
 # Carga diferida para decoraciones
-var wall: PackedScene = null
+var walls = null
 var decorations: Array = []
 
 # Máscaras 3D para cada nivel (carga diferida)
@@ -63,9 +63,19 @@ func _ready() -> void:
 func _load_resources() -> void:
 	# Cargar escenas principales
 	tutorialScene = load("res://scenes/tutorial.tscn")
-	defaultRoomScene = load("res://scenes/defaultRoom.tscn")
-	wall = load("res://scenes/decorations/doorBlocked.tscn")
-	
+	defaultRoomScenes = [null,
+						load("res://scenes/rooms/defaultRoom1.tscn"),
+						load("res://scenes/rooms/defaultRoom2.tscn"),
+						load("res://scenes/rooms/defaultRoom3.tscn"),
+						load("res://scenes/rooms/defaultRoom4.tscn"),
+						load("res://scenes/rooms/defaultRoom5.tscn")]
+	walls = [null,
+			load("res://scenes/rooms/doorBlocked1.tscn"),
+			load("res://scenes/rooms/doorBlocked2.tscn"),
+			load("res://scenes/rooms/doorBlocked3.tscn"),
+			load("res://scenes/rooms/doorBlocked4.tscn"),
+			load("res://scenes/rooms/doorBlocked5.tscn")]
+	floor = 0;
 	# Cargar decoraciones
 	decorations = [
 		load("res://scenes/decorations/decoration1.tscn"),
@@ -97,7 +107,7 @@ func print_matrix() -> void:
 			for z in range(6):
 				linea += str(matrixs[floor][x][z]) + " "
 				if matrixs[floor][x][z] >= 1:
-					var habitacion = defaultRoomScene.instantiate()
+					var habitacion = defaultRoomScenes[floor].instantiate()
 					habitacion.position.x = x * roomSize
 					habitacion.position.z = z * roomSize
 					var chosenDecoration = randi() % decorations.size()
@@ -162,8 +172,6 @@ func advanceMask() -> void:
 	elif floor == 4:#rojo + azul + verde
 		pass
 		
-	#comentario
-		
 func nextFloor() -> void:
 	advanceMask()
 	clean_matrix()
@@ -208,17 +216,17 @@ func _process(delta: float) -> void:
 
 func add_walls(habitacion, x, z):
 	if(matrixs[floor][x][z+1] == 0):
-		var wall1 =wall.instantiate()
+		var wall1 = walls[floor].instantiate()
 		wall1.rotation_degrees = Vector3(0, -90, 0)
 		habitacion.add_child(wall1)
 	if(matrixs[floor][x+1][z] == 0):
-		habitacion.add_child(wall.instantiate())
+		habitacion.add_child( walls[floor].instantiate())
 	if(matrixs[floor][x][z-1] == 0):
-		var wall1 =wall.instantiate()
+		var wall1 = walls[floor].instantiate()
 		wall1.rotation_degrees = Vector3(0, 90, 0)
 		habitacion.add_child(wall1)
 	if(matrixs[floor][x-1][z] == 0):
-		var wall1 =wall.instantiate()
+		var wall1 = walls[floor].instantiate()
 		wall1.rotation_degrees = Vector3(0, 180, 0)
 		habitacion.add_child(wall1)
 
