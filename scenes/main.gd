@@ -47,8 +47,16 @@ const decoration3 = preload("res://scenes/decorations/decoration3.tscn")
 const decoration4 = preload("res://scenes/decorations/decoration4.tscn")
 const decoration5 = preload("res://scenes/decorations/decoration5.tscn")
 var decorations = [decoration1, decoration2, decoration3, decoration4, decoration5]
+
+# Máscaras 3D para cada nivel
+const maskRed = preload("res://scenes/decorations/mask_red.tscn")
+const maskBlue = preload("res://scenes/decorations/mask_blue.tscn")
+const maskGreen = preload("res://scenes/decorations/mask_green.tscn")
+var masks = [maskRed, maskBlue, maskGreen]
+var current_mask: Node3D = null
+
 @onready var finalRoom = $finalRoomDecoration
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	randomize()
 	print_matrix()
@@ -73,7 +81,8 @@ func print_matrix() -> void:
 						var decoration = decorations[chosenDecoration].instantiate()
 						habitacion.add_child(decoration)
 					if (matrixs[floor][x][z] == 2):
-						finalRoom.global_position = Vector3(x * roomSize, 0, z * roomSize)
+						# Colocar la máscara correspondiente al nivel
+						spawn_mask_for_floor(x * roomSize, z * roomSize)
 					add_walls(habitacion, x, z)
 					floorMap.add_child(habitacion)
 					if primero:
@@ -84,6 +93,33 @@ func print_matrix() -> void:
 			print(linea)
 		add_child(floorMap)
 		floor += 1
+
+func spawn_mask_for_floor(pos_x: float, pos_z: float) -> void:
+	# Eliminar máscara anterior si existe
+	if current_mask:
+		current_mask.queue_free()
+	
+	# Elegir máscara según el nivel (floor 1→red, 2→blue, 3→green, luego cicla)
+	var mask_index = (floor) % 3  # 0=red, 1=blue, 2=green
+	current_mask = masks[mask_index].instantiate()
+	
+	# PRIMERO añadir al árbol, LUEGO establecer posición global
+	add_child(current_mask)
+	current_mask.global_position = Vector3(pos_x, 1, pos_z)
+	
+	# Conectar la señal del Area3D de la máscara
+	var area = current_mask.get_node("Area3D")
+	if area:
+		area.body_entered.connect(_on_mask_collected)
+
+func _on_mask_collected(body) -> void:
+	print("Máscara recogida por: ", body.name)
+	
+	# Si es el último nivel, mostrar victoria
+	if floor >= len(matrixs):
+		get_tree().change_scene_to_file("res://scenes/Victory.tscn")
+	else:
+		nextFloor()
 
 func nextFloor() -> void:
 	clean_matrix()
@@ -98,7 +134,22 @@ func create_tutorial() -> void:
 	var floorMap = node3d.new()
 	floorMap.name = "map"+str(floor)
 	var tutorial = tutorialScene.instantiate()
-	finalRoom.global_position = Vector3(0, 0, -70)
+	
+	# Ocultar y desactivar toda la decoración (cofre, cajas, barriles) en el tutorial
+	finalRoom.visible = false
+	# Mover lejos para evitar colisiones invisibles
+	finalRoom.global_position = Vector3(1000, 1000, 1000)
+	# Desactivar el Area3D del cofre
+	var cofre = finalRoom.get_node("cofre2")
+	if cofre:
+		var area = cofre.get_node("Area3D")
+		if area:
+			area.monitoring = false
+			area.monitorable = false
+	
+	# Colocar máscara roja en el tutorial
+	spawn_mask_for_floor(0, -70)
+	
 	floorMap.add_child(tutorial)
 	if primero:
 		primero = false
@@ -108,7 +159,6 @@ func create_tutorial() -> void:
 	add_child(floorMap)
 	floor += 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
@@ -128,11 +178,6 @@ func add_walls(habitacion, x, z):
 		wall1.rotation_degrees = Vector3(0, 180, 0)
 		habitacion.add_child(wall1)
 
+# Mantener compatibilidad con la conexión existente del cofre
 func _on_area_3d_body_entered(body):
-	print("Cofre recogido por: ", body.name)
-	
-	# Si es el último nivel (floor 5 = matrix5), mostrar victoria
-	if floor >= len(matrixs):
-		get_tree().change_scene_to_file("res://scenes/Victory.tscn")
-	else:
-		nextFloor()
+	_on_mask_collected(body)

@@ -73,7 +73,9 @@ func _physics_process(delta: float) -> void:
 	# --- MIRAR AL PLAYER ---
 	var look_pos := player.global_position
 	look_pos.y = global_position.y
-	look_at(look_pos, Vector3.UP)
+	# Evitar error si están en la misma posición
+	if not global_position.is_equal_approx(look_pos):
+		look_at(look_pos, Vector3.UP)
 
 	# --- DIRECCIÓN BASE HACIA EL PLAYER ---
 	var direction := (player.global_position - global_position)

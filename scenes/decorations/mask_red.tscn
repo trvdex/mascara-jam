@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://db3a6j5bljpbv"]
+
+[ext_resource type="PackedScene" uid="uid://pxek5l3dxp4l" path="res://assets/3dmask/redMask.glb" id="1_model"]
+[ext_resource type="Script" uid="uid://cxf40vxw1k4we" path="res://scripts/mask_float.gd" id="2_float"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_collect"]
+radius = 1.5
+
+[node name="MaskRed" type="Node3D" unique_id=1617219053]
+script = ExtResource("2_float")
+
+[node name="redMask" parent="." unique_id=2066187031 instance=ExtResource("1_model")]
+transform = Transform3D(-3.278354e-08, 0.75, 0, -0.75, -3.278354e-08, 0, 0, 0, 0.75, 0, 1.5, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1060464441]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=799870248]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.5, 0)
+shape = SubResource("SphereShape3D_collect")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1244097558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+light_color = Color(1, 0.2, 0.2, 1)
+light_energy = 8.0

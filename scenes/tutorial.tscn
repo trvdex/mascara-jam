@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://t0t72k1opmto"]
+[gd_scene format=3 uid="uid://cibn71nf2hw8e"]
 
-[ext_resource type="Script" uid="uid://ckwreb506s2kq" path="res://scenes/tutorial.gd" id="1_4kmhl"]
+[ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_4kmhl"]
 [ext_resource type="PackedScene" uid="uid://3pytvnxx7so8" path="res://scenes/decorations/doorBlocked.tscn" id="1_ph3nu"]
 [ext_resource type="PackedScene" uid="uid://c4luh2xtyootg" path="res://scenes/defaultRoom.tscn" id="2_4kmhl"]
 [ext_resource type="PackedScene" uid="uid://dfn5xc7ldjsqn" path="res://assets/decoration/resources/signboard.glb" id="3_cq4me"]
