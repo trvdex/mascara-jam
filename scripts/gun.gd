@@ -101,7 +101,6 @@ func shoot() -> void:
 		
 	if raycast and raycast.is_colliding():
 		var collider = raycast.get_collider()
-		print("¡Impacto en: ", collider.name, "!")
 		
 		if collider.has_method("take_damage"):
 			collider.take_damage(25, current_ammo)
