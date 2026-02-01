@@ -120,6 +120,10 @@ func _on_mask_collected(body) -> void:
 	if floor >= len(matrixs):
 		get_tree().change_scene_to_file("res://scenes/Victory.tscn")
 	else:
+		audio.stream = load("res://music/nextFloor.wav")
+		audio.volume_db = -10
+		add_child(audio)
+		audio.play()
 		nextFloor()
 
 func nextFloor() -> void:
@@ -182,7 +186,3 @@ func add_walls(habitacion, x, z):
 # Mantener compatibilidad con la conexión existente del cofre
 func _on_area_3d_body_entered(body):
 	_on_mask_collected(body)
-	audio.stream = load("res://music/nextFloor.wav")
-	audio.volume_db = -10
-	add_child(audio)
-	audio.play()
