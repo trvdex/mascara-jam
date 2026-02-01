@@ -136,6 +136,9 @@ func get_current_ammo_type() -> AmmoType:
 func get_can_shoot() -> bool:
 	return can_shoot
 
+func set_can_shoot(a: bool) -> void:
+	can_shoot = a
+
 	
 func _apply_ammo_color() -> void:
 	if spriteMask and canRed:

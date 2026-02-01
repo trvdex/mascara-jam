@@ -225,6 +225,7 @@ func advanceMask() -> void:
 		gun.setGreenMask()
 	elif floor == 4:#rojo + azul + verde
 		pass
+	gun.set_can_shoot(true)
 		
 func nextFloor() -> void:
 	advanceMask()
