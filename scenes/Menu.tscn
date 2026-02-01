@@ -248,7 +248,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_title")
 
 [node name="CreditsPanel" type="Panel" parent="." unique_id=942546583]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -269,21 +268,21 @@ theme_override_constants/separation = 10
 [node name="CreditsTitle" type="Label" parent="CreditsPanel/VBoxContainer" unique_id=1482536047]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "CRÉDITOS"
+text = "CREDITS"
 horizontal_alignment = 1
 
 [node name="CreditsText" type="Label" parent="CreditsPanel/VBoxContainer" unique_id=1816606723]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 18
-text = "Desarrollo y Programación
+text = "Programming and development
 
 Adrián Risco López
 David Comino Muriano
 Marc Costa Brusco
 Enrique Ándujar Sánchez
 
-Arte y Animación
+Art and Animation
 
 Vorasak Onying
 
@@ -294,7 +293,7 @@ vertical_alignment = 1
 [node name="BackButton" type="Button" parent="CreditsPanel/VBoxContainer" unique_id=2119678983]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "VOLVER"
+text = "Go Back"
 
 [node name="Node2D2" type="Node2D" parent="." unique_id=852243556]
 
