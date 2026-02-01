@@ -1,9 +1,7 @@
 Game done in 48 hours with Godot for the GGJ 2026.
 
-Game Link:
 https://adrindev.itch.io/chamask
 
-Credits:
 ## Programming and Development
 Adrián Risco López
 
