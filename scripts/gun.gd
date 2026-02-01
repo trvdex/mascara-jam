@@ -33,6 +33,7 @@ func setRedMask() -> void:
 	spriteHandR.visible = true
 	spriteMask.visible = true
 	switch_ammo(AmmoType.RED)
+	#comentario
 	
 func setBlueMask() -> void:
 	canBlue = true

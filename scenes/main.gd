@@ -162,6 +162,8 @@ func advanceMask() -> void:
 	elif floor == 4:#rojo + azul + verde
 		pass
 		
+	#comentario
+		
 func nextFloor() -> void:
 	advanceMask()
 	clean_matrix()
