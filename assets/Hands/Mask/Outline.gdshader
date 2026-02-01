@@ -34,4 +34,6 @@ void fragment() {
     } else {
         COLOR = tex;
     }
+	
+	COLOR.a *= 0.7;
 }

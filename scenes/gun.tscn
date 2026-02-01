@@ -179,7 +179,8 @@ frame_progress = 0.28146622
 script = ExtResource("18_xi512")
 
 [node name="HandR" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1173222210]
-position = Vector2(781, 491)
+position = Vector2(705.99994, 420)
+scale = Vector2(0.8203125, 0.8203125)
 sprite_frames = SubResource("SpriteFrames_wi2m7")
 animation = &"four"
 script = ExtResource("18_xi512")
@@ -187,10 +188,12 @@ amplitud = 10.0
 velocidad = 1.0
 
 [node name="Right" type="Node2D" parent="CanvasLayer/Control" unique_id=2088540738]
+modulate = Color(1, 1, 1, 0.96862745)
 
 [node name="Mask" type="AnimatedSprite2D" parent="CanvasLayer/Control/Right" unique_id=1730651445]
+modulate = Color(1, 1, 1, 0.47058824)
 material = SubResource("ShaderMaterial_qc2nv")
-position = Vector2(775, 285)
+position = Vector2(757.99994, 376)
 scale = Vector2(0.35231188, 0.32878217)
 sprite_frames = SubResource("SpriteFrames_qc2nv")
 animation = &"green"
