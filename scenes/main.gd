@@ -55,11 +55,46 @@ var current_mask: Node3D = null
 @onready var finalRoom = $finalRoomDecoration
 @onready var level_label: Label = $LevelNotificationLayer/LevelLabel
 
+# Menú de pausa
+var pause_menu_scene = preload("res://scenes/PauseMenu.tscn")
+var pause_menu: CanvasLayer = null
+var is_paused: bool = false
+
 func _ready() -> void:
 	randomize()
 	# Cargar recursos necesarios
 	_load_resources()
+	_setup_pause_menu()
 	print_matrix()
+
+func _setup_pause_menu() -> void:
+	pause_menu = pause_menu_scene.instantiate()
+	add_child(pause_menu)
+	pause_menu.get_node("Panel").visible = false
+	pause_menu.resume_game.connect(_on_resume_game)
+	pause_menu.go_to_menu.connect(_on_go_to_menu)
+
+func _input(event: InputEvent) -> void:
+	# Solo pausar si NO está pausado (el despause lo maneja PauseMenu)
+	if event.is_action_pressed("pause") and not is_paused:
+		toggle_pause()
+
+func toggle_pause() -> void:
+	is_paused = !is_paused
+	get_tree().paused = is_paused
+	pause_menu.get_node("Panel").visible = is_paused
+	if is_paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _on_resume_game() -> void:
+	toggle_pause()
+
+func _on_go_to_menu() -> void:
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
 
 func _load_resources() -> void:
 	# Cargar escenas principales
