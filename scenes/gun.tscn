@@ -243,7 +243,7 @@ script = ExtResource("18_xi512")
 position = Vector2(705.99994, 420)
 scale = Vector2(0.8203125, 0.8203125)
 sprite_frames = SubResource("SpriteFrames_wi2m7")
-animation = &"four"
+animation = &"one"
 script = ExtResource("18_xi512")
 amplitud = 10.0
 velocidad = 1.0
@@ -254,12 +254,12 @@ modulate = Color(1, 1, 1, 0.96862745)
 [node name="Mask" type="AnimatedSprite2D" parent="CanvasLayer/Control/Right" unique_id=1730651445]
 modulate = Color(1, 1, 1, 0.47058824)
 material = SubResource("ShaderMaterial_qc2nv")
-position = Vector2(757.99994, 376)
+position = Vector2(753.99994, 275)
 scale = Vector2(0.35231188, 0.32878217)
 sprite_frames = SubResource("SpriteFrames_qc2nv")
 animation = &"red"
 script = ExtResource("18_xi512")
-amplitud = 10.0
+amplitud = 20.0
 velocidad = 1.0
 
 [connection signal="animation_changed" from="CanvasLayer/Control/HandL" to="." method="_on_hand_l_animation_changed"]
