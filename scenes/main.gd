@@ -82,7 +82,13 @@ func _load_resources() -> void:
 		load("res://scenes/decorations/decoration2.tscn"),
 		load("res://scenes/decorations/decoration3.tscn"),
 		load("res://scenes/decorations/decoration4.tscn"),
-		load("res://scenes/decorations/decoration5.tscn")
+		load("res://scenes/decorations/decoration5.tscn"),
+		[null,
+		load("res://scenes/decorations/circularRoom/circularRoom1.tscn"),
+		load("res://scenes/decorations/circularRoom/circularRoom2.tscn"),
+		load("res://scenes/decorations/circularRoom/circularRoom3.tscn"),
+		load("res://scenes/decorations/circularRoom/circularRoom4.tscn"),
+		load("res://scenes/decorations/circularRoom/circularRoom5.tscn")]
 	]
 	
 	# Cargar máscaras (orden: rojo, azul, verde, blanco, blanco)
@@ -115,7 +121,11 @@ func print_matrix() -> void:
 					habitacion.position.z = z * roomSize
 					var chosenDecoration = randi() % decorations.size()
 					if (!(chosenDecoration == decorations.size()) and (matrixs[floor][x][z] != 2) and !primero):
-						var decoration = decorations[chosenDecoration].instantiate()
+						var decoration = null
+						if chosenDecoration == (decorations.size()-1):
+							decoration = decorations[chosenDecoration][floor].instantiate()
+						else:
+							decoration = decorations[chosenDecoration].instantiate()
 						habitacion.add_child(decoration)
 					if (matrixs[floor][x][z] == 2):
 						# Colocar la máscara correspondiente al nivel
