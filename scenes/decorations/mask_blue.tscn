@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ytumfoun14fe"]
 
 [ext_resource type="PackedScene" uid="uid://q3wykmmafl7v" path="res://assets/3dmask/blueMask.glb" id="1_model"]
-[ext_resource type="Script" uid="uid://cxf40vxw1k4we" path="res://scripts/mask_float.gd" id="2_float"]
+[ext_resource type="Script" path="res://scripts/mask_float.gd" id="2_float"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_collect"]
 radius = 1.5
@@ -14,7 +14,7 @@ transform = Transform3D(-3.278354e-08, 0.75, 0, -0.75, -3.278354e-08, 0, 0, 0, 0
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1730039839]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=609419751]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1, 0)
