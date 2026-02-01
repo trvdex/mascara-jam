@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="MascaraJam"
+config/name="CHAMASK"
 run/main_scene="uid://bly1kvgorg5ec"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://dbbvsxn318uod"

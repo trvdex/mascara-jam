@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbm37kr2jr7bu"]
 
 [ext_resource type="Theme" uid="uid://bc83lpx2m352m" path="res://font-menu/game_theme.tres" id="1_theme"]
-[ext_resource type="Script" path="res://scripts/Victory.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://cjol17ye06rs3" path="res://scripts/Victory.gd" id="2_script"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btn"]
 
