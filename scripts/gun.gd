@@ -98,7 +98,13 @@ func shoot() -> void:
 
 func switch_ammo(ammo_type: AmmoType) -> void:
 	if current_ammo != ammo_type:
-		current_ammo = ammo_type
+		if ammo_type == AmmoType.GREEN and canGreen:
+			current_ammo = ammo_type
+		elif ammo_type == AmmoType.BLUE and canBlue:
+			current_ammo = ammo_type
+		elif ammo_type == AmmoType.RED and canRed:
+			current_ammo = ammo_type
+		
 		_apply_ammo_color()
 		#print("Munición cambiada a: ", AmmoType.keys()[current_ammo])
 
@@ -155,9 +161,9 @@ func update_health_animation(hp: int) -> void:
 func _on_hand_l_animation_finished() -> void:
 	can_shoot = true
 	
-	if current_ammo == AmmoType.BLUE:
+	if current_ammo == AmmoType.BLUE and canBlue:
 		spriteHandL.play("BlueIdle")
-	elif current_ammo == AmmoType.GREEN:
+	elif current_ammo == AmmoType.GREEN and canGreen:
 		spriteHandL.play("GreenIdle")
 	else:#red
 		spriteHandL.play("RedIdle")
