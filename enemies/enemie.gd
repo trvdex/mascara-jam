@@ -9,6 +9,7 @@ extends CharacterBody3D
 @onready var player: Node3D = null
 @onready var footstep_sound: AudioStreamPlayer3D = $FootstepSound
 @onready var footstep_timer: Timer = $FootstepTimer
+@onready var audio := AudioStreamPlayer.new()
 
 # === TIPOS DE ENEMIGO ===
 enum EnemyColor { RED, BLUE, GREEN }
@@ -170,7 +171,7 @@ func hit_player():
 func take_damage(damage: int, ammo_type: int) -> void:
 	if ammo_type == enemyType:
 		print("¡Enemigo ", _get_color_name(), " eliminado! Daño recibido: ", damage)
-		call_deferred("queue_free")
+		die()
 	else:
 		print("¡Munición incorrecta! Necesitas munición ", _get_color_name(), " para este enemigo.")
 
@@ -187,6 +188,11 @@ func _get_color_name() -> String:
 
 
 func die():
+	audio.stream = load("res://music/enemyDeath.wav")
+	audio.volume_db = -15
+	get_parent().add_child(audio)
+	audio.play()
+	
 	call_deferred("queue_free")
 
 

@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://fw0isrv5ojgf" path="res://enemies/enemyGreen_0.png" id="4_kun26"]
 [ext_resource type="Texture2D" uid="uid://dk4t6ycnosn6y" path="res://enemies/enemyGreen_1.png" id="5_qmmhg"]
 [ext_resource type="AudioStream" uid="uid://driuh4eom1fil" path="res://music/footstep-1-83098.mp3" id="8_khlny"]
+[ext_resource type="AudioStream" uid="uid://bl8nmvieyctuq" path="res://music/enemyDeath.wav" id="9_kun26"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0ikd"]
 size = Vector3(0.34203172, 4.145356, 1.9104258)
@@ -121,5 +122,8 @@ randomness = 0.4
 visibility_aabb = AABB(-5, -2, -5, 10, 5, 10)
 process_material = SubResource("ParticleProcessMaterial_khlny")
 draw_pass_1 = SubResource("QuadMesh_kun26")
+
+[node name="EnemyDeath" type="AudioStreamPlayer" parent="." unique_id=1788570377]
+stream = ExtResource("9_kun26")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

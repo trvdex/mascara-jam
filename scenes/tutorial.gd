@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	audio.stream = load("res://assets/decoration/resources/audios/Prologo Chaman.mp3")
+	audio.stream = load("res://music/Prologo Chaman.mp3")
 	add_child(audio)
 	var area = get_child(0).get_child(5)
 	area.queue_free()

@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://bjaowo3bjm54f"]
 
+[ext_resource type="AudioStream" uid="uid://cfhbmilciq4c" path="res://music/lightningSpell.mp3" id="2_4sq5a"]
+[ext_resource type="AudioStream" uid="uid://byspjvrwrud70" path="res://music/plantStrike.mp3" id="3_2xxsy"]
 [ext_resource type="Texture2D" uid="uid://cshx6ss3r37bs" path="res://assets/Hands/Left/redHand/redHand0000.png" id="3_gdjye"]
 [ext_resource type="Texture2D" uid="uid://b2vld2k3lr12b" path="res://assets/Hands/Left/blueHand/blueHand0000.png" id="3_qk4dr"]
 [ext_resource type="Texture2D" uid="uid://bdiwgkk0dmhid" path="res://assets/Hands/Left/blueHand/blueHand0001.png" id="4_c6og4"]
 [ext_resource type="Texture2D" uid="uid://bnpbwgl7wfbua" path="res://assets/Hands/Left/redHand/redHand0001.png" id="4_dtghq"]
+[ext_resource type="AudioStream" uid="uid://diyseyw07celi" path="res://music/heartSmashed.wav" id="4_qk4dr"]
 [ext_resource type="Texture2D" uid="uid://codfj24cgpewn" path="res://assets/Hands/Left/redHand/redHand0002.png" id="5_4sq5a"]
 [ext_resource type="Texture2D" uid="uid://c78b4dicf6fyc" path="res://assets/Hands/Left/blueHand/blueHand0002.png" id="5_xw3mq"]
 [ext_resource type="Texture2D" uid="uid://dbbvsxn318uod" path="res://assets/Hands/Left/redHand/redHand0003.png" id="6_2xxsy"]
 [ext_resource type="Script" uid="uid://cggp4vs3ivr6y" path="res://scripts/gun.gd" id="6_haq8l"]
 [ext_resource type="Texture2D" uid="uid://g18ho02q3l7i" path="res://assets/Hands/Left/greenHand/greenHand0000.png" id="6_vvtly"]
-[ext_resource type="AudioStream" uid="uid://dkccky8cfide2" path="res://music/laser-gun-81720.mp3" id="7_laser"]
 [ext_resource type="Texture2D" uid="uid://dmflnw3u130lk" path="res://assets/Hands/Left/greenHand/greenHand0001.png" id="7_p0w0p"]
 [ext_resource type="Texture2D" uid="uid://c8sd8pq7kccks" path="res://assets/Hands/Left/redHand/redHand0004.png" id="7_qk4dr"]
 [ext_resource type="Texture2D" uid="uid://o1qnvxh6cscc" path="res://assets/Hands/Left/redHand/redHand0005.png" id="8_c6og4"]
@@ -22,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://mhyditmirwsu" path="res://assets/Hands/Mask/blueMask.png" id="15_qc2nv"]
 [ext_resource type="Texture2D" uid="uid://b0x578m6y6var" path="res://assets/Hands/Mask/greenMask.png" id="15_wi2m7"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="17_qc2nv"]
-[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
+[ext_resource type="Script" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fa1ey"]
 animations = [{
@@ -211,9 +213,14 @@ animations = [{
 [node name="Gun" type="Node3D" unique_id=2076234713]
 script = ExtResource("6_haq8l")
 
-[node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=479276468]
-stream = ExtResource("7_laser")
-volume_db = -5.0
+[node name="HeartSmashed" type="AudioStreamPlayer" parent="." unique_id=40154479]
+stream = ExtResource("4_qk4dr")
+
+[node name="LightningSpell" type="AudioStreamPlayer" parent="." unique_id=948310614]
+stream = ExtResource("2_4sq5a")
+
+[node name="PlantStrike" type="AudioStreamPlayer" parent="." unique_id=1240672970]
+stream = ExtResource("3_2xxsy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=20236319]
 

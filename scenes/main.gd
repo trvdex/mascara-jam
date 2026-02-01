@@ -4,6 +4,7 @@ const defaultRoomScene = preload("res://scenes/defaultRoom.tscn")
 const roomSize = 10; 
 var n := 4
 var tutorialScene := preload("res://scenes/tutorial.tscn")
+@onready var audio := AudioStreamPlayer.new()
 
 var matrix1 := [[0, 0, 0, 0, 0, 0],
 				[0, 1, 1, 1, 1, 0],
@@ -135,4 +136,8 @@ func _on_area_3d_body_entered(body):
 	if floor >= len(matrixs):
 		get_tree().change_scene_to_file("res://scenes/Victory.tscn")
 	else:
+		audio.stream = load("res://music/nextFloor.wav")
+		audio.volume_db = -10
+		add_child(audio)
+		audio.play()
 		nextFloor()

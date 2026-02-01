@@ -22,7 +22,6 @@ var bob_time: float = 0.0
 @onready var footstep_sound: AudioStreamPlayer = $FootstepSound
 @onready var footstep_timer: Timer = $FootstepTimer
 
-
 # Variables internas
 var current_speed: float = SPEED
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
