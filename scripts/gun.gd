@@ -14,8 +14,10 @@ const AMMO_COLORS := {
 @onready var spriteHandR: AnimatedSprite2D = $CanvasLayer/Control/HandR
 @onready var spriteMask: AnimatedSprite2D = $CanvasLayer/Control/Right/Mask
 @onready var spriteHandL: AnimatedSprite2D = $CanvasLayer/Control/HandL
-@onready var shoot_sound: AudioStreamPlayer = $ShootSound
 @onready var raycast : RayCast3D =  $"../Head/Camera3D/RayCast3D"
+@onready var redShootSound: AudioStreamPlayer = $HeartSmashed
+@onready var blueShootSound: AudioStreamPlayer = $LightningSpell
+@onready var greenShootSound: AudioStreamPlayer = $PlantStrike
 
 # === ESTADO ===
 var can_shoot: bool = true
@@ -51,15 +53,19 @@ func shoot() -> void:
 		return;
 		
 	can_shoot = false
-		
-	shoot_sound.play()
-	
+
 	if current_ammo == AmmoType.BLUE:
 		spriteHandL.play("BlueAttack")
+		blueShootSound.volume_db = -20
+		blueShootSound.play()
 	elif current_ammo == AmmoType.GREEN:
 		spriteHandL.play("GreenAttack")
+		greenShootSound.volume_db = -5
+		greenShootSound.play()
 	else:#red
 		spriteHandL.play("RedAttack")
+		redShootSound.volume_db = -20
+		redShootSound.play()
 		
 	if raycast and raycast.is_colliding():
 		var collider = raycast.get_collider()

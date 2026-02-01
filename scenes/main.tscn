@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d3w4nj2qkus1c" path="res://scripts/PlayerMovement.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dqboq2so76wa2" path="res://enemies/enemie.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://dohv8bqcrmetu" path="res://scenes/enemy_spawner.gd" id="5_tefeu"]
-[ext_resource type="AudioStream" uid="uid://dc8q8xbd5wvni" path="res://music/suits-you-69233.mp3" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://b6yuce8nihuw7" path="res://music/aztecTemple.wav" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://d0b2dgmq3pjyc" path="res://assets/decoration/scenes/caja_2.tscn" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://5yukct24u0r8" path="res://assets/decoration/scenes/cofre_2.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://b3ocdww6yi2fo" path="res://assets/decoration/scenes/barril_2.tscn" id="9_ya4ey"]
@@ -26,10 +26,11 @@ script = ExtResource("5_tefeu")
 enemy_scene = ExtResource("4_jyhfs")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=857248571]
-stream = ExtResource("6_tefeu")
-volume_db = -15.0
+stream = ExtResource("6_85g3d")
+volume_db = -20.0
 autoplay = true
-parameters/looping = true
+stream_paused = true
+playback_type = 1
 
 [node name="finalRoomDecoration" type="Node3D" parent="." unique_id=478063889]
 
