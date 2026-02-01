@@ -2,9 +2,9 @@ extends Node3D
 
 # --- Ajustes exportados para modificar desde el Inspector ---
 @export var spawn_radius: float = 10.0
-@export var spawn_interval: float = 4.0
+@export var spawn_interval: float = 2.0
 @export var enemy_scene: PackedScene  # asigna aquí tu escena de enemigo
-@export var max_spawn_attempts: int = 10  # Intentos máximos para encontrar suelo
+@export var max_spawn_attempts: int = 3  # Intentos máximos para encontrar suelo
 @export var spawn_height: float = 5.0  # Altura desde donde lanzar el raycast
 @onready var player := get_parent().get_node("Player")
 
