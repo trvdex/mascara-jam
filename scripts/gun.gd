@@ -23,9 +23,29 @@ const AMMO_COLORS := {
 var can_shoot: bool = true
 var current_ammo: AmmoType = AmmoType.RED
 
+var canRed: bool = false
+var canBlue: bool = false
+var canGreen: bool = false
+
+func setRedMask() -> void:
+	canRed = true
+	spriteHandL.visible = true
+	spriteHandR.visible = true
+	spriteMask.visible = true
+	switch_ammo(AmmoType.RED)
+	
+func setBlueMask() -> void:
+	canBlue = true
+	switch_ammo(AmmoType.BLUE)
+
+func setGreenMask() -> void:
+	canGreen = true
+	switch_ammo(AmmoType.GREEN)
 
 func _ready() -> void:
-	_apply_ammo_color()
+	spriteHandL.visible = false
+	spriteHandR.visible = false
+	spriteMask.visible = false
 
 
 func _input(event: InputEvent) -> void:
@@ -34,11 +54,11 @@ func _input(event: InputEvent) -> void:
 		shoot()
 	
 	# Cambio de munición con teclas numéricas
-	if event.is_action_pressed("ammo_red"):
+	if event.is_action_pressed("ammo_red") and canRed:
 		switch_ammo(AmmoType.RED)
-	elif event.is_action_pressed("ammo_blue"):
+	elif event.is_action_pressed("ammo_blue") and canBlue:
 		switch_ammo(AmmoType.BLUE)
-	elif event.is_action_pressed("ammo_green"):
+	elif event.is_action_pressed("ammo_green") and canGreen:
 		switch_ammo(AmmoType.GREEN)
 	
 	# Cambio de munición con rueda del ratón
@@ -101,7 +121,7 @@ func get_can_shoot() -> bool:
 
 	
 func _apply_ammo_color() -> void:
-	if spriteMask:
+	if spriteMask and canRed:
 		if current_ammo == AmmoType.BLUE:
 			spriteMask.play("blue")
 		elif current_ammo == AmmoType.GREEN:

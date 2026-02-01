@@ -7,6 +7,8 @@ var n := 4
 var tutorialScene: PackedScene = null
 @onready var audio := AudioStreamPlayer.new()
 
+@onready var gun : Node3D =  $Player/Gun
+
 var matrix1 := [[0, 0, 0, 0, 0, 0],
 				[0, 1, 1, 1, 1, 0],
 				[0, 1, 0, 1, 0, 0],
@@ -147,7 +149,18 @@ func _on_mask_collected(body) -> void:
 		audio.play()
 		nextFloor()
 
+func advanceMask() -> void:
+	if floor == 1:#rojo
+		gun.setRedMask()
+	elif floor == 2:#rojo + azul
+		gun.setBlueMask()
+	elif floor == 3:#rojo + azul + verde
+		gun.setGreenMask()
+	elif floor == 4:#rojo + azul + verde
+		pass
+		
 func nextFloor() -> void:
+	advanceMask()
 	clean_matrix()
 	print_matrix()
 
