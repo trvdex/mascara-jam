@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://mhyditmirwsu" path="res://assets/Hands/Mask/blueMask.png" id="15_qc2nv"]
 [ext_resource type="Texture2D" uid="uid://b0x578m6y6var" path="res://assets/Hands/Mask/greenMask.png" id="15_wi2m7"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="17_qc2nv"]
-[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
+[ext_resource type="Script" path="res://scenes/objectMoverUI.gd" id="18_xi512"]
 [ext_resource type="Texture2D" uid="uid://och10dk5duol" path="res://assets/Hands/Right/blueRing.png" id="22_n5tfn"]
 [ext_resource type="Texture2D" uid="uid://ckvoatjdb0j6k" path="res://assets/Hands/Right/greenRing.png" id="23_gdnuw"]
 [ext_resource type="Texture2D" uid="uid://cbho255b88cr0" path="res://assets/Hands/Right/redRing.png" id="24_niktg"]

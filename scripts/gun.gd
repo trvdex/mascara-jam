@@ -94,7 +94,7 @@ func shoot() -> void:
 		spriteHandL.play("GreenAttack")
 		greenShootSound.volume_db = -5
 		greenShootSound.play()
-	else:#red
+	elif current_ammo == AmmoType.RED and canRed:
 		spriteHandL.play("RedAttack")
 		redShootSound.volume_db = -20
 		redShootSound.play()

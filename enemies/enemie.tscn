@@ -92,7 +92,7 @@ shape = SubResource("BoxShape3D_y0ikd")
 debug_color = Color(0.3254902, 0.58431375, 0.61960787, 1)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1184590304]
-transform = Transform3D(0.8, 0, 0, 0, 0.79999995, 0, 0, 0, 0.79999995, -0.36210048, 0.46775556, 0)
+transform = Transform3D(0.79999995, 0, 0, 0, 0.7999999, 0, 0, 0, 0.7999999, -0.36210048, -0.54365563, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_df457")
 animation = &"green"
@@ -101,7 +101,7 @@ animation = &"green"
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=29286276]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.08322323, 0.5663669, 0.02690125)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.083223216, 0.56636685, 0.02690125)
 shape = SubResource("BoxShape3D_60d01")
 debug_color = Color(0.7726719, 0.4196268, 0.39289105, 0.41960785)
 

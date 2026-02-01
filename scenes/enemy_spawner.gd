@@ -42,7 +42,7 @@ func _try_get_valid_spawn_position() -> Vector3:
 	# Calcula posición aleatoria dentro del radio
 	var angle = randf() * TAU
 	var distance = spawn_radius + randf() * spawn_radius  # Entre 1x y 2x el radio
-	var spawn_offset = Vector3(cos(angle) * distance, 0, sin(angle) * distance)
+	var spawn_offset = Vector3(cos(angle) * distance, 1.5, sin(angle) * distance)
 	
 	# Posición de inicio del raycast (arriba del jugador + offset)
 	var ray_origin = player.global_position + spawn_offset + Vector3(0, spawn_height, 0)
@@ -59,7 +59,7 @@ func _try_get_valid_spawn_position() -> Vector3:
 		# Verificar que la superficie es suelo (normal apunta hacia arriba)
 		var normal = result.normal
 		if normal.dot(Vector3.UP) > 0.7:  # Solo superficies horizontales
-			return result.position + Vector3(0, 0.5, 0)
+			return result.position + Vector3(0, 1, 0)
 	
 	# No hay suelo válido en esta posición
 	return Vector3.ZERO
@@ -67,7 +67,8 @@ func _try_get_valid_spawn_position() -> Vector3:
 
 func _spawn_enemy_at(spawn_position: Vector3):
 	var enemy_instance = enemy_scene.instantiate()
-	
+	enemy_instance.position.y = 1.0
+	enemy_instance.scale = Vector3(0.4, 0.4, 1	)
 	# PRIMERO añadir al árbol, LUEGO establecer posición global
 	get_tree().current_scene.add_child(enemy_instance)
 	enemy_instance.global_position = spawn_position
