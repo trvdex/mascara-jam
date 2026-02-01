@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://cpsngb33bq17p" path="res://scripts/Menu.gd" id="1_menu"]
 [ext_resource type="Theme" uid="uid://bc83lpx2m352m" path="res://font-menu/game_theme.tres" id="1_upctu"]
 [ext_resource type="Texture2D" uid="uid://nii8amumchwj" path="res://font-menu/CHAMASk.png" id="2_title"]
-[ext_resource type="Script" path="res://scenes/spinner.gd" id="3_4umqm"]
+[ext_resource type="Script" uid="uid://cohbote78phon" path="res://scenes/spinner.gd" id="3_4umqm"]
 [ext_resource type="Texture2D" uid="uid://bus6h6o0r6xve" path="res://assets/titlescreen.PNG" id="3_el213"]
 [ext_resource type="Texture2D" uid="uid://dkx6y036knx5e" path="res://font-menu/Item-Activo.png" id="3_selector"]
 [ext_resource type="Shader" uid="uid://djmq3g286iywr" path="res://assets/Hands/Mask/Outline.gdshader" id="3_yt8fu"]
 [ext_resource type="Texture2D" uid="uid://mhyditmirwsu" path="res://assets/Hands/Mask/blueMask.png" id="4_4umqm"]
 [ext_resource type="Texture2D" uid="uid://b0x578m6y6var" path="res://assets/Hands/Mask/greenMask.png" id="5_pp5m5"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="6_el213"]
-[ext_resource type="Script" path="res://scenes/objectMoverUI.gd" id="7_thu7x"]
+[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="7_thu7x"]
+[ext_resource type="Texture2D" uid="uid://ddc61qs0orguc" path="res://assets/Textures/Elements/SNOW.png" id="11_pp5m5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtd1e"]
 shader = ExtResource("3_yt8fu")
@@ -247,7 +248,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_title")
 
 [node name="CreditsPanel" type="Panel" parent="." unique_id=942546583]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -268,21 +268,21 @@ theme_override_constants/separation = 10
 [node name="CreditsTitle" type="Label" parent="CreditsPanel/VBoxContainer" unique_id=1482536047]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "CRÉDITOS"
+text = "CREDITS"
 horizontal_alignment = 1
 
 [node name="CreditsText" type="Label" parent="CreditsPanel/VBoxContainer" unique_id=1816606723]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 18
-text = "Desarrollo y Programación
+text = "Programming and development
 
 Adrián Risco López
 David Comino Muriano
 Marc Costa Brusco
 Enrique Ándujar Sánchez
 
-Arte y Animación
+Art and Animation
 
 Vorasak Onying
 
@@ -293,4 +293,12 @@ vertical_alignment = 1
 [node name="BackButton" type="Button" parent="CreditsPanel/VBoxContainer" unique_id=2119678983]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "VOLVER"
+text = "Go Back"
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=852243556]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Node2D2" unique_id=1863230060]
+position = Vector2(357, 260)
+amount = 17
+texture = ExtResource("11_pp5m5")
+lifetime = 0.42

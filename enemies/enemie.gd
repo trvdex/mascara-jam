@@ -13,7 +13,7 @@ extends CharacterBody3D
 
 # === TIPOS DE ENEMIGO ===
 enum EnemyColor { RED, BLUE, GREEN }
-@onready var enemyType: int = randi_range(0, 2)
+@onready var enemyType: int = 0
 
 # === DETECCIÓN DE OBSTÁCULOS ===
 var ray_left: RayCast3D
@@ -27,6 +27,17 @@ var random_offset: Vector3 = Vector3.ZERO
 
 
 func _ready() -> void:
+	var main = get_tree().current_scene
+	var floor = int(main.floor)
+	
+	print("Estamos en el floor: ", floor)
+	if floor == 2:
+		enemyType = 0
+	elif floor == 3:
+		enemyType = randi_range(0,1)
+	else:
+		enemyType = randi_range(0, 2)
+	
 	# Buscar player de forma segura
 	await get_tree().process_frame
 	player = get_tree().current_scene.get_node_or_null("Player")
