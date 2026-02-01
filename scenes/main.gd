@@ -85,11 +85,14 @@ func _load_resources() -> void:
 		load("res://scenes/decorations/decoration5.tscn")
 	]
 	
-	# Cargar máscaras
+	# Cargar máscaras (orden: rojo, azul, verde, blanco, blanco)
+	# Nivel 1→red, 2→blue, 3→green, 4→white, 5→white
 	masks = [
-		load("res://scenes/decorations/mask_red.tscn"),
-		load("res://scenes/decorations/mask_blue.tscn"),
-		load("res://scenes/decorations/mask_green.tscn")
+		load("res://scenes/decorations/mask_red.tscn"),    # Nivel 1
+		load("res://scenes/decorations/mask_blue.tscn"),   # Nivel 2
+		load("res://scenes/decorations/mask_green.tscn"),  # Nivel 3
+		load("res://scenes/decorations/mask_white.tscn"),  # Nivel 4
+		load("res://scenes/decorations/mask_white.tscn")   # Nivel 5
 	]
 	
 	# Inicializar array de matrices
@@ -133,9 +136,13 @@ func spawn_mask_for_floor(pos_x: float, pos_z: float) -> void:
 	if current_mask:
 		current_mask.queue_free()
 	
-	# Elegir máscara según el nivel (floor 1→red, 2→blue, 3→green, luego cicla)
-	var mask_index = (floor) % 3  # 0=red, 1=blue, 2=green
-	current_mask = masks[mask_index].instantiate()
+	# Elegir máscara según el nivel
+	# floor 0 (tutorial)→red, floor 1→blue, floor 2→green, floor 3→white, floor 4→white
+	var mask_index = floor  # floor 0 = índice 0 (roja)
+	if mask_index >= 0 and mask_index < masks.size():
+		current_mask = masks[mask_index].instantiate()
+	else:
+		current_mask = masks[masks.size() - 1].instantiate()  # Fallback a última máscara
 	
 	# PRIMERO añadir al árbol, LUEGO establecer posición global
 	add_child(current_mask)
