@@ -283,31 +283,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="CreditsText" type="Label" parent="CreditsPanel/VBoxContainer" unique_id=1816606723]
+[node name="CreditsText" type="RichTextLabel" parent="CreditsPanel/VBoxContainer" unique_id=1816606723]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 18
-text = "Programming and development
+bbcode_enabled = true
+text = "[center][font_size=24][b]Programming and Development[/b][/font_size]
 
-Adrián Risco López
+[font_size=16]Adrián Risco López
 David Comino Muriano
 Marc Costa Brusco
-Enrique Ándujar Sánchez
+Enrique Ándujar Sánchez[/font_size]
 
-Art and Animation
 
-Vorasak Onying
+[font_size=24][b]Art and Animation[/b][/font_size]
 
-Script
+[font_size=16]Vorasak Onying[/font_size]
 
-Santiago Caprile
 
-Concept 
+[font_size=24][b]Script[/b][/font_size]
 
-Fabián Leone
+[font_size=16]Santiago Caprile[/font_size]
 
-GGJ BCN 2026"
-horizontal_alignment = 1
+
+[font_size=24][b]Concept[/b][/font_size]
+
+[font_size=16]Fabián Leone[/font_size]
+
+
+[font_size=24][b]GGJ BCN 2026[/b][/font_size][/center]"
+scroll_active = false
 vertical_alignment = 1
 
 [node name="BackButton" type="Button" parent="CreditsPanel/VBoxContainer" unique_id=2119678983]
