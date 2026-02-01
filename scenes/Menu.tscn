@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cpsngb33bq17p" path="res://scripts/Menu.gd" id="1_menu"]
 [ext_resource type="Theme" uid="uid://bc83lpx2m352m" path="res://font-menu/game_theme.tres" id="1_upctu"]
 [ext_resource type="Texture2D" uid="uid://nii8amumchwj" path="res://font-menu/CHAMASk.png" id="2_title"]
-[ext_resource type="Script" uid="uid://cohbote78phon" path="res://scenes/spinner.gd" id="3_4umqm"]
+[ext_resource type="Script" path="res://scenes/spinner.gd" id="3_4umqm"]
 [ext_resource type="Texture2D" uid="uid://bus6h6o0r6xve" path="res://assets/titlescreen.PNG" id="3_el213"]
 [ext_resource type="Texture2D" uid="uid://dkx6y036knx5e" path="res://font-menu/Item-Activo.png" id="3_selector"]
-[ext_resource type="Shader" uid="uid://djmq3g286iywr" path="res://assets/Hands/Mask/Outline.gdshader" id="3_yt8fu"]
+[ext_resource type="Shader" path="res://assets/Hands/Mask/Outline.gdshader" id="3_yt8fu"]
 [ext_resource type="Texture2D" uid="uid://mhyditmirwsu" path="res://assets/Hands/Mask/blueMask.png" id="4_4umqm"]
 [ext_resource type="Texture2D" uid="uid://b2vld2k3lr12b" path="res://assets/Hands/Left/blueHand/blueHand0000.png" id="4_rtd1e"]
 [ext_resource type="Texture2D" uid="uid://u7rra2bugrjm" path="res://assets/Hands/Right/5_idle.png" id="5_6c8sk"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://och10dk5duol" path="res://assets/Hands/Right/blueRing.png" id="6_5p0sf"]
 [ext_resource type="Texture2D" uid="uid://c7fymma4ql568" path="res://assets/Hands/Mask/redMask.png" id="6_el213"]
 [ext_resource type="Texture2D" uid="uid://ckvoatjdb0j6k" path="res://assets/Hands/Right/greenRing.png" id="7_7t7qg"]
-[ext_resource type="Script" uid="uid://biy45ii8le6b6" path="res://scenes/objectMoverUI.gd" id="7_thu7x"]
+[ext_resource type="Script" path="res://scenes/objectMoverUI.gd" id="7_thu7x"]
 [ext_resource type="Texture2D" uid="uid://cbho255b88cr0" path="res://assets/Hands/Right/redRing.png" id="8_l3wcu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtd1e"]
@@ -79,9 +79,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
+offset_top = -1.0
 offset_right = 31.0
-offset_bottom = 27.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_el213")
