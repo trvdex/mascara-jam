@@ -14,6 +14,11 @@ const AMMO_COLORS := {
 @onready var spriteHandR: AnimatedSprite2D = $CanvasLayer/Control/HandR
 @onready var spriteMask: AnimatedSprite2D = $CanvasLayer/Control/Right/Mask
 @onready var spriteHandL: AnimatedSprite2D = $CanvasLayer/Control/HandL
+
+@onready var spriteRedRing: Sprite2D = $CanvasLayer/Control/HandR/RedRing
+@onready var spriteBlueRing: Sprite2D = $CanvasLayer/Control/HandR/BlueRing
+@onready var spriteGreenRing: Sprite2D = $CanvasLayer/Control/HandR/GreenRing
+
 @onready var raycast : RayCast3D =  $"../Head/Camera3D/RayCast3D"
 @onready var redShootSound: AudioStreamPlayer = $HeartSmashed
 @onready var blueShootSound: AudioStreamPlayer = $LightningSpell
@@ -33,19 +38,26 @@ func setRedMask() -> void:
 	spriteHandR.visible = true
 	spriteMask.visible = true
 	switch_ammo(AmmoType.RED)
+	spriteRedRing.visible = true
 	
 func setBlueMask() -> void:
 	canBlue = true
 	switch_ammo(AmmoType.BLUE)
+	spriteBlueRing.visible = true
 
 func setGreenMask() -> void:
 	canGreen = true
 	switch_ammo(AmmoType.GREEN)
+	spriteGreenRing.visible = true
 
 func _ready() -> void:
 	spriteHandL.visible = false
 	spriteHandR.visible = false
 	spriteMask.visible = false
+	
+	spriteBlueRing.visible = false
+	spriteRedRing.visible = false
+	spriteGreenRing.visible = false
 
 
 func _input(event: InputEvent) -> void:

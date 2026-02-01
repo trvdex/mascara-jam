@@ -295,11 +295,3 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Go Back"
-
-[node name="Node2D2" type="Node2D" parent="." unique_id=852243556]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Node2D2" unique_id=1863230060]
-position = Vector2(357, 260)
-amount = 17
-texture = ExtResource("11_pp5m5")
-lifetime = 0.42
