@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var ACCELERATION: float = 15.0
 @export var DECELERATION: float = 10.0
 @export var JUMP_VELOCITY: float = 6.0
+@export var JOYSTICK_SENS: float = 3.5
 
 # === RATÓN ===
 @export var MOUSE_SENS: float = 0.15
@@ -51,12 +52,20 @@ func _input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# Disparo
-	if event.is_action_pressed("shoot"):
+	if event.is_action_pressed("shoot", false):
 		gun.shoot()
 
 
+func _handle_joystick_camera(delta: float) -> void:
+	var joy_vector = Input.get_vector("look_left", "look_right", "look_up", "look_down")
+	if joy_vector.length() > 0:
+		rotate_y(-joy_vector.x * JOYSTICK_SENS * delta)
+		head.rotate_x(-joy_vector.y * JOYSTICK_SENS * delta)
+
 func _physics_process(delta: float) -> void:
-	# Gravedad
+	#camara mando
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		_handle_joystick_camera(delta)	# Gravedad
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
