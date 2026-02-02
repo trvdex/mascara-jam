@@ -121,12 +121,29 @@ func switch_ammo(ammo_type: AmmoType) -> void:
 
 
 func next_ammo() -> void:
-	var next_type := (current_ammo + 1) % AmmoType.size()
+	var next_type:  AmmoType = current_ammo
+	if canRed:
+		if not canBlue and not canGreen:
+			next_type = current_ammo
+		elif canBlue and not canGreen:
+			next_type = (current_ammo + 1) % 2
+		else:
+			next_type = (current_ammo + 1) % AmmoType.size()
+			
 	switch_ammo(next_type as AmmoType)
 
 
 func prev_ammo() -> void:
-	var prev_type := (current_ammo - 1 + AmmoType.size()) % AmmoType.size()
+	var prev_type: AmmoType = current_ammo
+	
+	if canRed:
+		if not canBlue and not canGreen:
+			prev_type = current_ammo
+		elif canBlue and not canGreen:
+			prev_type = (current_ammo + AmmoType.size()) % 2
+		else:
+			prev_type = (current_ammo - 1 + AmmoType.size()) % AmmoType.size()
+			
 	switch_ammo(prev_type as AmmoType)
 
 
